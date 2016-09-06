@@ -55,8 +55,8 @@ define('DB_CHARSET', 'utf8mb4');
 define('DB_COLLATE', '');
 
 //なんかこれがないと旧ブログにリダイレクトされちゃうっぽい？
-define('WP_HOME','http://panyaa.herokuapp.com');
-define('WP_SITEURL','http://panyaa.herokuapp.com');
+define('WP_HOME','https://panyaa.herokuapp.com');
+define('WP_SITEURL','https://panyaa.herokuapp.com');
 
 //管理画面からPHPの編集をできなくするやつらしいです
 define('DISALLOW_FILE_EDIT', true);
