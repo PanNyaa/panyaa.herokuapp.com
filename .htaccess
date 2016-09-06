@@ -1,15 +1,5 @@
 
-<IfModule mod_rewrite.c>
-# WordPressでは必須の設定？
-RewriteEngine On
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://panyaa.herokuapp.com/$1 [R=301,L]
-</IfModule>
+
 
 # wp-config.phpにブラウザからアクセスできないようにする
 <files wp-config.php>
