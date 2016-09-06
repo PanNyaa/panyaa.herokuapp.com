@@ -134,7 +134,7 @@
     }
 
     echo "<div class=\"counter-num\">",sprintf("%06d", $counts[0]),"</div>";
-    echo "<div class=\"counter-ty\"><br>今日のアクセス数：", $counts[1], "　昨日のアクセス数：", $counts[2], "</div>\n";
+    echo "<div class=\"counter-ty\"><br>今日：", $counts[1], "アクセス　昨日：", $counts[2], "アクセス</div>\n";
 
 ?>
 
