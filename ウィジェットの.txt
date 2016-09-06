@@ -90,3 +90,15 @@ pixiv</a><br>
 data-widget-id="366022156569702400" 
 data-chrome="noborders">@pan_nyaa からのツイート</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+<ul>
+<li><a href="/wp-admin/">(自分用)ﾜｯﾌﾟﾚにﾛｷﾞｰﾝｯ</a></li>
+<li><a href="https://herokuapp.com/">(自分用)herokuapﾛｷﾞｰﾝｯ</a></li>
+<li><a href="https://panyaa.herokuapp.com/wp-login.php?action=logout&amp;_wpnonce=ef1f0331d7">ログアウト</a></li>
+<li><a href="https://panyaa.herokuapp.com/feed">投稿の <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+<li><a href="https://panyaa.herokuapp.com/comments/feed">コメントの <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+</ul>
+
+

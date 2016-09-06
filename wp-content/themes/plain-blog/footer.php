@@ -34,12 +34,12 @@
             </div>
         </div>
         <!--footer wrapper End here-->
-	<div class="copyright">
+	<!-- <div class="copyright">
      <div class="container">	
       <div class="clearboth"></div>      
      <a target="_blank" href="http://www.navthemes.com/plain-blog-theme"><?php _e('Plain Blog Theme', 'plain-blog'); ?></a> <?php _e('By', 'plain-blog') ?> <a target="_blank" href="http://navthemes.com">NavThemes.com</a>   
     </div>        
-   </div>       
+   </div> -->       
     
     </div> <!--main_container end-->
     <?php wp_footer(); ?>
