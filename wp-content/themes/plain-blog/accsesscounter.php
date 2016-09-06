@@ -34,12 +34,14 @@
 </style>
 
 <?php
-	
-	date_default_timezone_set('Asia/Tokyo');	//タイムゾーンを日本に設定しま～～～す
-	ini_set( 'display_errors', 1 );
+
+	error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED);	//Deprecated 抑制
+	date_default_timezone_set('Asia/Tokyo');			//タイムゾーンを日本に設定しま～～～す
+	ini_set( 'display_errors', 1 );						//エラーメッセージを表示する設定にする
 
 	//手動で配置したdropbox-sdkを読み込む。ファイルパスはphpの場所に応じて適宜書き換えてください。
-	require_once dirname(__FILE__)."/../../../lib/Dropbox/autoload.php";
+	//require_once dirname(__FILE__)."/../../../lib/Dropbox/autoload.php";
+	require('vendor/autoload.php');	//heroku上にdropbox-sdkがインストールできたのでどこからでもお手軽インクルード
 	
 	// \Dropbox を dbx としても記述できるように定義する
 	use \Dropbox as dbx;
@@ -91,26 +93,27 @@
 	$ipdata;
 	$iptable = [0];
 	
-	$path_countdata = __DIR__.DIRECTORY_SEPARATOR."data".DIRECTORY_SEPARATOR."countdata.dat";
+	$path_countdata = __DIR__.DIRECTORY_SEPARATOR."data".DIRECTORY_SEPARATOR."countdata.dat";	//ファイルパスなので適宜いじってください
 	$path_ipdata = __DIR__.DIRECTORY_SEPARATOR."data".DIRECTORY_SEPARATOR."ipdata.dat";
 	
 	$flag = true;
 
 	$countdata = $client->getFileContents($path_countdata);	//dropboxからファイル(これはアクセス数カウントデータ)を読み込んで文字列に返す
 	
-	$counts = split(" ", $countdata);	//保存データ分割（トータル、今日、昨日、日付）
+	$counts = split(" ", $countdata);	//トータルアクセス数・今日のアクセス数・昨日のアクセス数・日付データを半角スペースで分解して格納
 	
-	if(date("j") != $counts[3]) {	//日付確認（日付が変わった場合）
-		$counts[3] = date("j");	//日付$count[3]を今日の日付に
-		$counts[2] = $counts[1];	//昨日のカウント$count[2]を$count[1]に
-		$counts[1] = 0;	//今日のカウント$count[1]を0に
-		$ipdata = "512.512.512.512 512.512.512.512";	//仮データを設定
+	if(date("j") != $counts[3]) {		//日付確認（日付が変わった場合）
+		$counts[3] = date("j");			//日付$count[3]を今日の日付に
+		$counts[2] = $counts[1];		//昨日のカウント$count[2]を$count[1]に
+		$counts[1] = 0;					//今日のカウント$count[1]を0に
+		$ipdata = "0.0.0.0 0.0.0.0";	//リセット用仮データを設定
 		$iptable = split(" ", $ipdata);	//仮データ分割して配列にぽいぽい
 	}else{
 		$ipdata = $client->getFileContents($path_ipdata);	//dropboxからファイル(これはipテーブル)を読み込んで文字列に返す
-		$iptable = split(" ", $ipdata);
+		$iptable = split(" ", $ipdata);						//IPデータ群を半角スペース区切りで分解して配列にいれる
 	}
-
+	
+	//直近100アクセス以内に同じIPアドレスがあったらカウントしない
 	for($i=0;$i<100;$i++){
 		if($ip === $iptable[$i]){
 			$flag = false;
@@ -121,18 +124,17 @@
 	if($flag){
 		$counts[0]++;	//トータルカウント+1
 		$counts[1]++;	//今日のカウント+1
-		$countdata = join(" ", $counts);	//保存データ作成（半角スペースで結合）
-
-		array_unshift($iptable,$ip);	//ipアドレスを配列の最初にプッシュする
-
-		$ipdata = join(" ",$iptable);
+		array_unshift($iptable,$ip);		//アクセス元IPアドレスを配列の最初にプッシュする、この関数便利です！
+		
+		$countdata = join(" ", $counts);	//counts配列に含まれる数値群を文字列に変換して格納する、区切り文字は半角スペース
+		$ipdata = join(" ",$iptable);		//これも同じく
 
 		$client->uploadFileContents($path_countdata,$countdata);	//文字列をファイルに書き込んでアップロード
-		$client->uploadFileContents($path_ipdata, $ipdata);	//文字列をファイルに書き込んでアップロード
+		$client->uploadFileContents($path_ipdata,$ipdata);			//これも同じく
 	}
 
 	echo "<div class=\"counter-num\">",sprintf("%06d", $counts[0]),"</div>";
-	echo "<div class=\"counter-ty\"><br>今日：", $counts[1], "　昨日：", $counts[2], "</div>\n";
+	echo "<div class=\"counter-ty\"><br>今日のアクセス数：", $counts[1], "　昨日のアクセス数：", $counts[2], "</div>\n";
 
 ?>
 

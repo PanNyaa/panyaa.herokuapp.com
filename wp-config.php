@@ -54,10 +54,18 @@ define('DB_CHARSET', 'utf8mb4');
 /** データベースの照合順序 (ほとんどの場合変更する必要はありません) */
 define('DB_COLLATE', '');
 
+//なんかこれがないと旧ブログにリダイレクトされちゃうっぽい？
 define('WP_HOME','http://panyaa.herokuapp.com');
 define('WP_SITEURL','http://panyaa.herokuapp.com');
 
+//管理画面からPHPの編集をできなくするやつらしいです
 define('DISALLOW_FILE_EDIT', true);
+
+//ログインや管理画面を強制的にSSL通信にするやつらしいです
+define('FORCE_SSL_ADMIN', true);
+if ( ! empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ) {
+       $_SERVER['HTTPS']='on';
+}
 
 /**#@+
  * 認証用ユニークキー
