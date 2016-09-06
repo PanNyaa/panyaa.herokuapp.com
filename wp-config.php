@@ -57,6 +57,8 @@ define('DB_COLLATE', '');
 define('WP_HOME','http://panyaa.herokuapp.com');
 define('WP_SITEURL','http://panyaa.herokuapp.com');
 
+define('DISALLOW_FILE_EDIT', true);
+
 /**#@+
  * 認証用ユニークキー
  *
