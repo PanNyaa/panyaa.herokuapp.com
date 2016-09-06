@@ -1,4 +1,5 @@
 <IfModule mod_rewrite.c>
+# WordPressでは必須の設定？
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
@@ -7,7 +8,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
 
-# protect wp-config.php
+# wp-config.phpにブラウザからアクセスできないようにする
 <files wp-config.php>
 order deny,allow
 deny from all
@@ -22,5 +23,12 @@ RewriteRule !^wp-includes/ - [S=3]
 RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
 RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
 RewriteRule ^wp-includes/theme-compat/ - [F,L]
+</IfModule>
+
+# httpアクセスを全てhttpsにリダイレクト
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://panyaa.herokuapp.com/$1 [R=301,L]
 </IfModule>
 
