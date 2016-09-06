@@ -61,11 +61,9 @@ define('WP_SITEURL','http://panyaa.herokuapp.com');
 //管理画面からPHPの編集をできなくするやつらしいです
 define('DISALLOW_FILE_EDIT', true);
 
-//ログインや管理画面を強制的にSSL通信にするやつらしいです
-define('FORCE_SSL_ADMIN', true);
-if ( ! empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ) {
-       $_SERVER['HTTPS']='on';
-}
+//すべてを強制的にSSL通信にするやつ
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')
+    $_SERVER['HTTPS'] = 'on';
 
 /**#@+
  * 認証用ユニークキー
