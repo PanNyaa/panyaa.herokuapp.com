@@ -28,7 +28,7 @@ $args = array(
 $datetime1 = new DateTime(get_lastpostmodified());
 $home = array(
     'loc' => home_url(),
-    'last_mod' => $datetime1->format('c'),
+    'lastmod' => $datetime1->format('c'),
     'changefreq' => 'daily',
     'priority' => 1.0
 );
