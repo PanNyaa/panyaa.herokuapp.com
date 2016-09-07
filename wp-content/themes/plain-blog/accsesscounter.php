@@ -90,24 +90,24 @@
     $counts = [0];
 
     $ip = $_SERVER['REMOTE_ADDR'];  //アクセス元のIPアドレスを取得
-    $ipdata;
+    $ipdata = "0.0.0.0 0.0.0.0";;   //仮データを入れておく
     $iptable = [0];
 
-    $path_countdata = __DIR__.DIRECTORY_SEPARATOR."data".DIRECTORY_SEPARATOR."countdata.dat";   //ファイルパスなので適宜いじってください
-    $path_ipdata = __DIR__.DIRECTORY_SEPARATOR."data".DIRECTORY_SEPARATOR."ipdata.dat";
+    $path_countdata = "data/countdata.dat";   //ファイルパスなので適宜いじってください
+    $path_ipdata = "data/ipdata.dat";
 
     $flag = true;
 
-    $countdata = $client->getFileContents($path_countdata); //dropboxからファイル(これはアクセス数カウントデータ)を読み込んで文字列に返す
 
+
+    $countdata = $client->getFileContents($path_countdata); //dropboxからファイル(これはアクセス数カウントデータ)を読み込んで文字列に返す
     $counts = split(" ", $countdata);   //トータルアクセス数・今日のアクセス数・昨日のアクセス数・日付データを半角スペースで分解して格納
 
     if(date("j") != $counts[3]) {       //日付確認（日付が変わった場合）
         $counts[3] = date("j");         //日付$count[3]を今日の日付に
         $counts[2] = $counts[1];        //昨日のカウント$count[2]を$count[1]に
         $counts[1] = 0;                 //今日のカウント$count[1]を0に
-        $ipdata = "0.0.0.0 0.0.0.0";    //リセット用仮データを設定
-        $iptable = split(" ", $ipdata); //仮データ分割して配列にぽいぽい
+        $iptable = split(" ", $ipdata); //入っている仮データを分割して配列にぽいぽい
     }else{
         $ipdata = $client->getFileContents($path_ipdata);   //dropboxからファイル(これはipテーブル)を読み込んで文字列に返す
         $iptable = split(" ", $ipdata);                     //IPデータ群を半角スペース区切りで分解して配列にいれる
@@ -121,7 +121,7 @@
         }
     }
 
-    if($flag){
+    if($flag){          //新しいIPの訪問者だった場合カウントする
         $counts[0]++;   //トータルカウント+1
         $counts[1]++;   //今日のカウント+1
         array_unshift($iptable,$ip);        //アクセス元IPアドレスを配列の最初にプッシュする、この関数便利です！
