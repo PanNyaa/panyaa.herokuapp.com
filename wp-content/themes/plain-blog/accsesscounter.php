@@ -86,16 +86,19 @@
     //クラスを変数に定義、アクセストークンはここで指定します。getenv()でheroku上に設定した環境変数から読み込んでいます。第二引数は適当な文字列で良いっぽいです
     $client = new PanyaaExtends(getenv('DROPBOX_ACCESS_TOKEN'),"panyaa");
 
-    $countdata;
+    $countdata = "0 0 0 0"; //仮データを入れておく
     $counts = [0];
 
     $ip = $_SERVER['REMOTE_ADDR'];  //アクセス元のIPアドレスを取得
     $ipdata = "0.0.0.0 0.0.0.0";;   //仮データを入れておく
     $iptable = [0];
 
-    $path_countdata = "/data/countdata.dat";   //ファイルパスなので適宜いじってください
-    $path_ipdata = "/data/ipdata.dat";
-
+    $path_countdata = "/data/countdata.dat";    //ファイルパスなので適宜いじってください
+    $path_ipdata = "/data/ipdata.dat";          //※ファイルパスの先頭には / もしくは ./ が必須なようです(無い場合はsdk側でエラーが出る)
+                                                //例えば /data/a.dat と指定した場合、アプリケーション指定したフォルダの直下にdata/a.datが生成されます
+                                                //例えば ./data/a.dat と指定した場合、このphpを実行しているフォルダの場所の構成がそのままアプリケーション指定したフォルダの直下に生成されます
+                                                //例えばheroku上で /wp-content/themes/plain-blog/accsesscounter.php で実行している場合、./data/a.dat と指定すると、
+                                                //      (アプリケーションフォルダ名)/app/wp-content/themes/plain-blog/data/a.dat が生成されます
     $flag = true;
 
 
