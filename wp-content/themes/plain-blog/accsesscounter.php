@@ -93,8 +93,8 @@
     $ipdata = "0.0.0.0 0.0.0.0";;   //仮データを入れておく
     $iptable = [0];
 
-    $path_countdata = "data/countdata.dat";   //ファイルパスなので適宜いじってください
-    $path_ipdata = "data/ipdata.dat";
+    $path_countdata = "/data/countdata.dat";   //ファイルパスなので適宜いじってください
+    $path_ipdata = "/data/ipdata.dat";
 
     $flag = true;
 
