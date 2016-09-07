@@ -24,7 +24,7 @@ class SitemapGenerator{
     function generate($file=null){
         if( is_null($file) ) {
             header("Content-Type: text/xml; charset=utf-8");
-            echo "<?xml version=\"1.0\" encoding=\"Shift_JIS\" ?>";
+            //echo "<?xml version=\"1.0\" encoding=\"Shift_JIS\" ?>";
             echo $this->sitemap->saveXML();
         } else {
             $this->sitemap->save( $file );
