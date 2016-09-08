@@ -17,6 +17,11 @@ Tags: white, red, threaded-comments, custom-menu
 
 /* edit by pan_nyaa */
 
+/* <p class="red">～～</p> で文字色を指定できるようにしたぞい！ */
+p.red   {   color: #FF0000; }
+p.green {   color: #00FF00; }
+p.blue  {   color: #0000FF; }
+
 /* カレンダーがはみ出るのでサイズ調整 */
 table, tr, td, th {
     border: 1px solid #F1F1F1;
