@@ -28,9 +28,7 @@
     if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
     wp_head();
     ?>
-    <!-- アナリティクスのインクルード -->
-    <?php include_once dirname(__FILE__)."/analyticstracking.php" ?>
-    <!-- 成功してたらこの間に吐き出されてるはず -->
+    <!-- アナリティクスのインクルード --><?php include_once dirname(__FILE__)."/analyticstracking.php" ?><!-- 成功してたらこの間に吐き出されてるはず -->
 
 
 </head>
