@@ -16,7 +16,7 @@
 if(!is_page()) {
 ?>
     <div class="col-md-1 no-padding date-wrapper">
-        <div class="date"><?php the_time("Y年\nn月j日"); ?></div>
+        <div class="date"><?php the_time("Y年\nm月d日"); ?></div>
     </div>
 <?php
 }
@@ -42,7 +42,7 @@ if(!is_page()) {
                <?php if ( is_category() || is_archive() ) {
 					the_excerpt();
 				} else {
-                                        get_template_part('sns_bts');
+                                        get_template_part('sns_bts'); //にゃー
 					
 					the_content();
 				} ?>
