@@ -78,7 +78,37 @@ if(!is_page()) {
     <?php
     if(is_single()) {
         comments_template();
-        comment_form();
+        //comment_form(); //PanNyaaaaaaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!!!!!!!!!
+        /*  */
+        //$notes = 'メールアドレスが公開されることはありません。 * が付いている欄は必須項目です';
+        $name = '名前(コメント非公開をご希望であれば (非公開) と書き足してください)';
+        $mail = 'メールアドレス(メール返信をご希望の場合はコメ欄にその旨も書いてくださるとメールで返信いたします)\n';
+        $site = 'ウェブサイト';
+        $comments_args = array(
+            'fields' => apply_filters( 'comment_form_default_fields', array(
+                
+                'author' =>
+                '<p class="comment-form-author">' .
+                '<label for="author">'.$name.'</label> ' .
+                ( $req ? '<span class="required">*</span>' : '' ) .
+                '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+                '" size="30"' . $aria_req . ' /></p>',
+
+                'email' =>
+                '<p class="comment-form-email"><label for="email">'.$mail.'</label> ' .
+                ( $req ? '<span class="required">*</span>' : '' ) .
+                '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+                '" size="30"' . $aria_req . ' /></p>',
+
+                'url' =>
+                 '<p class="comment-form-url"><label for="url">'.$site.'</label>' .
+                 '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
+                 '" size="30" /></p>'
+                 
+                 )
+            ),
+        );
+    comment_form($comments_args);   /*  */
     }
     ?>
 </div>
