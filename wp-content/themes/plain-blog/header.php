@@ -28,7 +28,7 @@
     if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
     wp_head();
     ?>
-
+    <!-- アナリティクスのインクルード --><?php include_once(get_template_directory_uri()."analyticstracking.php") ?>
 
 
 </head>
