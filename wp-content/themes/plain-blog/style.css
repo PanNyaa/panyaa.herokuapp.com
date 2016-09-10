@@ -776,7 +776,8 @@ h1 {
     font-size: 1.4em;
     color: #fff;
     line-height: 1.5em;
-    padding: 10px 4px 10px 11px;
+    padding: 10px 2.5px 10px 12.5px;
+    //margin: 0px 0px 0px -20px;
     display: inline-block;
     margin-right: 1px;
     position: relative;

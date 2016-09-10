@@ -16,7 +16,7 @@
 if(!is_page()) {
 ?>
     <div class="col-md-1 no-padding date-wrapper">
-        <div class="date"><?php the_time("Y年\nm月d日"); ?></div>
+        <div class="date"><?php the_time("Y年"); ?><br><?php the_time("m月d日"); ?></div>
     </div>
 <?php
 }
