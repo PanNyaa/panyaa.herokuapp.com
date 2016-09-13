@@ -1,9 +1,9 @@
+# httpアクセスを全てhttpsに強制リダイレクト
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 </IfModule>
-
 
 <ifmodule mod_rewrite.c>
 RewriteEngine On
