@@ -18,9 +18,9 @@ Tags: white, red, threaded-comments, custom-menu
 /* edit by pan_nyaa */
 
 /* <font_c class="red">～～</p> で文字色を指定できるようにしたぞい！ */
-font_c.red   {   color: #FF0000; }
-font_c.green {   color: #00FF00; }
-font_c.blue  {   color: #0000FF; }
+font_c.red   { color: #FF0000; }
+font_c.green { color: #00FF00; }
+font_c.blue  { color: #0000FF; }
 
 /* カレンダーがはみ出るのでサイズ調整 */
 table, tr, td, th {
@@ -403,15 +403,33 @@ body {
     background-image:
                 url(/wp-content/themes/plain-blog/whitening_l.png),
                 url(/wp-content/themes/plain-blog/whitening_r.png),
+                url(/wp-content/themes/plain-blog/whitening_l.png),
+                url(/wp-content/themes/plain-blog/whitening_r.png),
                 url(/wp-content/themes/plain-blog/harubg.png);
-    background-repeat:repeat-y,repeat-y,repeat;
-    background-position: top left,top right,top left;
-    background-attachment: fixed,fixed,scroll; /* 雪な背景がfixedだとAndroidChromeで表示が崩れるので諦めた */
-    background-size:360px 360px,360px 360px,18% auto;
-    -webkit-background-size:360px 360px,360px 360px,18% auto;
-    -moz-background-size:360px 360px,360px 360px,18% auto;
-    -o-background-size:360px 360px,360px 360px,18% auto;
-    -ms-background-size:360px 360px,360px 360px,18% auto;
+    background-repeat:
+                repeat-y,
+                repeat-y,
+                repeat-y,
+                repeat-y,
+                repeat;
+    background-position:
+                top left,
+                top right,
+                top left,
+                top right,
+                top left;
+    background-attachment:
+                fixed,
+                fixed,
+                fixed,
+                fixed,
+                scroll; /* 雪な背景がfixedだとAndroidChromeで表示が崩れるので諦めた */
+    background-size:
+                90px 90px,
+                90px 90px,
+                90px 90px,
+                90px 90px,
+                18% auto;
     margin: 0;
 
     padding: 0;
