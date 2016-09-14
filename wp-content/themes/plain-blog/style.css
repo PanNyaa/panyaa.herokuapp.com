@@ -425,10 +425,10 @@ body {
                 fixed,
                 scroll; /* 雪な背景がfixedだとAndroidChromeで表示が崩れるので諦めた */
     background-size:
-                90px 90px,
-                90px 90px,
-                90px 90px,
-                90px 90px,
+                25px 25px,
+                25px 25px,
+                25px 25px,
+                25px 25px,
                 18% auto;
     margin: 0;
 

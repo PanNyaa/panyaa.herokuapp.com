@@ -9,14 +9,15 @@
     font-style: normal;
 }
 
-.counter-num{
-    letter-spacing: 0.1em;
+.counter-num {
+    /* letter-spacing: -0.0vw; */
     font-family: "cartoon_blocks_christmasRg";
     font-size: 40px;
     color: #00c9ff;
     text-align: center;
-    margin: -0.32em 0em -0.32em -0.133em;   /* -0.24em */
+    margin: -0.32em 0em -0.32em -0em;
     text-shadow: 0px 1px 0px rgba(0, 201, 255, 0.6),0px 2px 0px rgba(0, 201, 255, 0.3),0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0.08em 5px rgba(0,0,0,1),0 -0.04em 2px rgba(0,0,0,1);
+    /* display: block; */
 }
 
 .counter-ty{
