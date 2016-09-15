@@ -480,9 +480,14 @@ body {
     font-size: <?php echo $DefaultFontSize;?>px;
 }
 
-@media(max-width:361px){
+@media(max-width:360px){
     body{
         font-size: 7.5px;
+    }
+}
+@media(min-width:360px){
+    body{
+        font-size: 10px;
     }
 }
 /**
