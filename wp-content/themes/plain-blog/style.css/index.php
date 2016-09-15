@@ -485,9 +485,9 @@ body {
         font-size: 7.5px;
     }
 }
-@media(min-width:360px){
+@media(min-width:361px){
     body{
-        font-size: 10px;
+        font-size: 11px;
     }
 }
 /**
