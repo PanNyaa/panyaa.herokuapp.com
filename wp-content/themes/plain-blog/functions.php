@@ -111,7 +111,8 @@ function plain_blog_loadStyles() {
     wp_enqueue_style('plain-blog-font-awesome', plain_blog_getAssetsPath('custom/css/font-awesome.min.css'));
 
     //Load the main theme stylesheet.
-    wp_enqueue_style('plain-blog-style', get_stylesheet_uri());
+    //wp_enqueue_style('plain-blog-style', get_stylesheet_uri());
+    wp_enqueue_style('plain-blog-style', get_template_directory_uri() . 'style.css/' );
 
 }
 
