@@ -455,6 +455,12 @@ body {
     font-smoothing: antialiased;
     font-size: 62.5%;
 }
+
+@media(max-width:360px){
+    body{
+        font-size: 50%;
+    }
+}
 /**
 
  * 2.0 Basic Structure
