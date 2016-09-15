@@ -6,17 +6,16 @@
     $wbg_l_path="/wp-content/themes/plain-blog/whitening_l.png";
     $bg_haru_path="/wp-content/themes/plain-blog/harubg.png";
     
-    $DefaultFontSize                =   11;
+    $DefaultFontSize                =   10;
     $body_fontsize                  =   $DefaultFontSize / 100;
-    $single_title_fontsize          =   sprintf("%fem",$body_fontsize*25);
-    $p_fontsize                     =   sprintf("%fem",$body_fontsize*15);
-    $myprofile_fontsize             =   sprintf("%fem",$body_fontsize*13);
+    $single_title_fontsize          =   sprintf("%fem",$body_fontsize*24);
     $page_title_fontsize            =   sprintf("%fem",$body_fontsize*22);
     $page_title_h1_fontsize         =   sprintf("%fem",$body_fontsize*25);
+    $p_fontsize                     =   sprintf("%fem",$body_fontsize*15);
     $h_subscribe_fontsize           =   sprintf("%fem",$body_fontsize*20);
-    $myprofile_c_fontsize           =   sprintf("%fem",$body_fontsize*10);
-    $myprofile_links_fontsize       =   sprintf("%fem",$body_fontsize*13);
-    $h1_fontsize                    =   sprintf("%fem",$body_fontsize*30);
+    $myprofile_fontsize             =   sprintf("%fem",$body_fontsize*10);
+    $myprofile_c_fontsize           =   sprintf("%fem",$body_fontsize* 9);
+    $myprofile_links_fontsize       =   sprintf("%fem",$body_fontsize*10);
     $content_wrap_h2                =   sprintf("%fem",$body_fontsize*20);
     $copyright_fontsize             =   sprintf("%fem",$body_fontsize*12);
     $reply_title_fontsize           =   sprintf("%fem",$body_fontsize*20);
