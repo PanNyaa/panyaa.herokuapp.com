@@ -477,7 +477,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
     font-smoothing: antialiased;
-    font-size: <?php echo $body_fontsize;?>px;
+    font-size: <?php echo $DefaultFontSize;?>px;
 }
 
 @media(max-width:361px){
