@@ -7,6 +7,7 @@
     $bg_haru_path="/wp-content/themes/plain-blog/harubg.png";
     
     $DefaultFontSize                =   10;
+    $MobileFontSize                 =   $DefaultFontSize * 0.75;    //モバイル環境用の文字サイズ
     $body_fontsize                  =   $DefaultFontSize / 100;
     $single_title_fontsize          =   sprintf("%fem",$body_fontsize*24);
     $page_title_fontsize            =   sprintf("%fem",$body_fontsize*22);
@@ -479,14 +480,14 @@ body {
     font-size: <?php echo $DefaultFontSize;?>px;
 }
 
-@media(max-width:360px){
+@media(max-width:360px){ /* ビューポートの横幅が360px以下のモバイル環境だったら小さいフォントサイズにする */
     body{
-        font-size: 7.5px;
+        font-size: <?php echo $MobileFontSize;?>px;
     }
 }
-@media(min-width:361px){
+@media(min-width:361px){ /* ビューポートの横幅が361px以上のパソコン環境だったら普通のフォントサイズにする */
     body{
-        font-size: 11px;
+        font-size: <?php echo $DefaultFontSize;?>px;
     }
 }
 /**
