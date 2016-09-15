@@ -1,47 +1,61 @@
 <?php header('Content-type: text/css');?>
 
 <?php
-    $wbg_size=25;
-    $wbg_r_path="/wp-content/themes/plain-blog/whitening_r.png";
-    $wbg_l_path="/wp-content/themes/plain-blog/whitening_l.png";
-    $bg_haru_path="/wp-content/themes/plain-blog/harubg.png";
+
+    class cssFontSize{
+        public  $DefaultFont           =   10;
+        public  $MobileFont            =   $DefaultFont * 0.75;    //モバイル環境用の文字サイズ
+        private $body                  =   $DefaultFont / 100;
+        public  $single_title          =   sprintf("%fem",$body*24);
+        public  $page_title            =   sprintf("%fem",$body*22);
+        public  $page_title_h1         =   sprintf("%fem",$body*25);
+        public  $p                     =   sprintf("%fem",$body*15);
+        public  $h_subscribe           =   sprintf("%fem",$body*20);
+        public  $myprofile             =   sprintf("%fem",$body*10);
+        public  $myprofile_c           =   sprintf("%fem",$body* 9);
+        public  $myprofile_links       =   sprintf("%fem",$body*10);
+        public  $content_wrap_h2       =   sprintf("%fem",$body*20);
+        public  $copyright             =   sprintf("%fem",$body*12);
+        public  $reply_title           =   sprintf("%fem",$body*20);
+        public  $reply_title_a         =   sprintf("%fem",$body*15);
+        public  $fn_says               =   sprintf("%fem",$body*14);
+        public  $comment_meta_a        =   sprintf("%fem",$body*13);
+        public  $footer_widget_h2      =   sprintf("%fem",$body*15);
+        public  $footer_widget_li_a    =   sprintf("%fem",$body*13);
+        public  $h1                    =   sprintf("%fem",$body*30);
+        public  $h2                    =   sprintf("%fem",$body*30);
+        public  $h3                    =   sprintf("%fem",$body*25);
+        public  $h4                    =   sprintf("%fem",$body*20);
+        public  $h5                    =   sprintf("%fem",$body*18);
+        public  $h6                    =   sprintf("%fem",$body*15);
+        public  $dt                    =   sprintf("%fem",$body*18);
+        public  $dd                    =   sprintf("%fem",$body*15);
+        public  $pre                   =   sprintf("%fem",$body*14);
+        public  $big                   =   sprintf("%fem",$body*20);
+        public  $small                 =   sprintf("%fem",$body*10);
+        public  $q_before              =   sprintf("%fem",$body*25);
+        public  $q_after               =   sprintf("%fem",$body*25);
+        public  $sub_sup               =   sprintf("%fem",$body*12);
+        public  $tt                    =   sprintf("%fem",$body*13);
+        public  $ul_li                 =   sprintf("%fem",$body*15);
+        public  $navigation_ul_li_a    =   sprintf("%fem",$body*13);
+        public  $navigation_ul_ul_li_a =   sprintf("%fem",$body*13);
+    }
     
-    $DefaultFontSize                =   10;
-    $MobileFontSize                 =   $DefaultFontSize * 0.75;    //モバイル環境用の文字サイズ
-    $body_fontsize                  =   $DefaultFontSize / 100;
-    $single_title_fontsize          =   sprintf("%fem",$body_fontsize*24);
-    $page_title_fontsize            =   sprintf("%fem",$body_fontsize*22);
-    $page_title_h1_fontsize         =   sprintf("%fem",$body_fontsize*25);
-    $p_fontsize                     =   sprintf("%fem",$body_fontsize*15);
-    $h_subscribe_fontsize           =   sprintf("%fem",$body_fontsize*20);
-    $myprofile_fontsize             =   sprintf("%fem",$body_fontsize*10);
-    $myprofile_c_fontsize           =   sprintf("%fem",$body_fontsize* 9);
-    $myprofile_links_fontsize       =   sprintf("%fem",$body_fontsize*10);
-    $content_wrap_h2                =   sprintf("%fem",$body_fontsize*20);
-    $copyright_fontsize             =   sprintf("%fem",$body_fontsize*12);
-    $reply_title_fontsize           =   sprintf("%fem",$body_fontsize*20);
-    $reply_title_a_fontsize         =   sprintf("%fem",$body_fontsize*15);
-    $fn_says_fontsize               =   sprintf("%fem",$body_fontsize*14);
-    $comment_meta_a_fontsize        =   sprintf("%fem",$body_fontsize*13);
-    $footer_widget_h2_fontsize      =   sprintf("%fem",$body_fontsize*15);
-    $footer_widget_li_a_fontsize    =   sprintf("%fem",$body_fontsize*13);
-    $h1_fontsize                    =   sprintf("%fem",$body_fontsize*30);
-    $h2_fontsize                    =   sprintf("%fem",$body_fontsize*30);
-    $h3_fontsize                    =   sprintf("%fem",$body_fontsize*25);
-    $h4_fontsize                    =   sprintf("%fem",$body_fontsize*20);
-    $h5_fontsize                    =   sprintf("%fem",$body_fontsize*18);
-    $h6_fontsize                    =   sprintf("%fem",$body_fontsize*15);
-    $dt_fontsize                    =   sprintf("%fem",$body_fontsize*18);
-    $dd_fontsize                    =   sprintf("%fem",$body_fontsize*15);
-    $pre_fontsize                   =   sprintf("%fem",$body_fontsize*14);
-    $big_fontsize                   =   sprintf("%fem",$body_fontsize*20);
-    $small_fontsize                 =   sprintf("%fem",$body_fontsize*10);
-    $q_before_fontsize              =   sprintf("%fem",$body_fontsize*25);
-    $q_after_fontsize               =   sprintf("%fem",$body_fontsize*25);
-    $sub_sup_fontsize               =   sprintf("%fem",$body_fontsize*12);
-    $tt_fontsize                    =   sprintf("%fem",$body_fontsize*13);
-    $navigation_ul_li_a_fontsize    =   sprintf("%fem",$body_fontsize*13);
-    $navigation_ul_ul_li_a_fontsize =   sprintf("%fem",$body_fontsize*13);
+    class cssGraphicSize{
+        public $wbg =   25;
+    }
+    
+    class cssPath{
+        public $wbg_r   =   "/wp-content/themes/plain-blog/whitening_r.png";
+        public $wbg_l   =   "/wp-content/themes/plain-blog/whitening_l.png";
+        public $bg_haru =   "/wp-content/themes/plain-blog/harubg.png";
+    }
+    
+    $fsize  =   new cssFontSize();      /* 例えば $fsize::tt で $tt の呼び出しが可能に      */
+    $gsize  =   new cssGraphicSize();   /* 例えば $gsize::twbg で $wbg の呼び出しが可能に   */
+    $path   =   new cssPath();          /* 例えば $path::wbg_r で $tt の呼び出しが可能に    */
+    
 ?>
 
 /* ！！！スタイルシート完全に理解した！！！ */
@@ -176,7 +190,7 @@ img {
     border: 0px solid rgba(0, 224, 255, 0.85);
     color: rgba(170, 170, 170, 0.01);
     text-align: center;
-    font-size: <?php echo $h_subscribe_fontsize;?>;
+    font-size: <?php echo $fsize::h_subscribe;?>;
     padding: 0em;
     margin: 0em;
     /*width: 192px;*/
@@ -249,11 +263,11 @@ pre code {
     padding: 0.25em 1.5em;
     border: 2px dotted rgba(0, 224, 255, 0.25);
     border-radius: 30px;
-    font-size: <?php echo $myprofile_fontsize;?>;
+    font-size: <?php echo $fsize::myprofile;?>;
 }
 #myprofile_c {
     padding: 0.5em 0em 0em 1em;
-    font-size:<?php echo $myprofile_c_fontsize;?>;
+    font-size:<?php echo $fsize::myprofile_c;?>;
 }
 #myprofile_links_wrap {
     background: rgba(255, 255, 255, 0.50) none repeat scroll 0% 0%;
@@ -263,7 +277,7 @@ pre code {
 #myprofile_links {
     color: rgb(0, 85, 221);
     padding: 0.25em 1.51em 0.5em 1.5em;
-    font-size:<?php echo $myprofile_links_fontsize;?>;
+    font-size:<?php echo $fsize::myprofile_links;?>;
 }
 #myprofile_links_c {
     padding: 0.0em 0em 0em 0.91em;
@@ -450,11 +464,11 @@ body {
 body {
     
     background-image:
-        url(<?php echo $wbg_l_path;?>),
-        url(<?php echo $wbg_r_path;?>),
-        url(<?php echo $wbg_l_path;?>),
-        url(<?php echo $wbg_r_path;?>),
-        url(<?php echo $bg_haru_path;?>);
+        url(<?php echo $path::wbg_l;?>),
+        url(<?php echo $path::wbg_r;?>),
+        url(<?php echo $path::wbg_l;?>),
+        url(<?php echo $path::wbg_r;?>),
+        url(<?php echo $path::bg_haru;?>);
 
     background-repeat: repeat-y, repeat-y, repeat-y, repeat-y, repeat;
     background-position: top left, top right, top left, top right, top left;
@@ -462,10 +476,10 @@ body {
     /* 雪な背景がfixedだとAndroidChromeで表示が崩れるので諦めた */
     
     background-size:
-        <?php echo $wbg_size, "px"," ", $wbg_size, "px";?>,
-        <?php echo $wbg_size, "px"," ", $wbg_size, "px";?>,
-        <?php echo $wbg_size, "px"," ", $wbg_size, "px";?>,
-        <?php echo $wbg_size, "px"," ", $wbg_size, "px";?>,
+        <?php echo $gsize::wbg, "px"," ", $gsize::wbg, "px";?>,
+        <?php echo $gsize::wbg, "px"," ", $gsize::wbg, "px";?>,
+        <?php echo $gsize::wbg, "px"," ", $gsize::wbg, "px";?>,
+        <?php echo $gsize::wbg, "px"," ", $gsize::wbg, "px";?>,
         18% auto;
         
     margin: 0;
@@ -477,17 +491,17 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
     font-smoothing: antialiased;
-    font-size: <?php echo $DefaultFontSize;?>px;
+    font-size: <?php echo $fsize::DefaultFont;?>px;
 }
 
 @media(max-width:360px){ /* ビューポートの横幅が360px以下のモバイル環境だったら小さいフォントサイズにする */
     body{
-        font-size: <?php echo $MobileFontSize;?>px;
+        font-size: <?php echo $fsize::MobileFont;?>px;
     }
 }
 @media(min-width:361px){ /* ビューポートの横幅が361px以上のパソコン環境だったら普通のフォントサイズにする */
     body{
-        font-size: <?php echo $DefaultFontSize;?>px;
+        font-size: <?php echo $fsize::DefaultFont;?>px;
     }
 }
 /**
@@ -514,14 +528,14 @@ p {
     padding-top: 1em;
 }
 h1 {
-    font-size: <?php echo $h1_fontsize;?>;
+    font-size: <?php echo $fsize::h1;?>;
     color: #fff;
     margin: 0;
 }
 .page-title {
     text-transform: none;
     margin: 0px;
-    font-size: <?php echo $page_title_fontsize;?>;
+    font-size: <?php echo $fsize::page_title;?>;
     text-align: center;
     padding: 40px 0;
     background: rgba(255, 255, 255, 0.85);
@@ -535,7 +549,7 @@ h1 {
 .page-title h1 {
     text-transform: none;
     margin: 0px;
-    font-size: <?php echo $page_title_h1_fontsize;?>;
+    font-size: <?php echo $fsize::page_title_h1;?>;
 }
 h1.single-title {
     /* 古いの */
@@ -549,7 +563,7 @@ h1.single-title {
 	*/
     
     text-transform: none;
-    font-size: <?php echo $single_title_fontsize; ?>;
+    font-size: <?php echo $fsize::single_title; ?>;
     text-align: center;
     margin: 0px 0px 10px;
     padding: 0.17em;
@@ -747,7 +761,7 @@ img {
 }
 .content_wrap h2 {
     text-align: center;
-    font-size: <?php echo $content_wrap_h2;?>;
+    font-size: <?php echo $fsize::content_wrap_h2;?>;
 }
 .content_wrap p {
     text-align: left;
@@ -1031,7 +1045,7 @@ img {
 .copyright {
     padding: 8px;
     background: rgba(221, 221, 221, 0.85);
-    font-size:<?php echo $copyright_fontsize;?>;
+    font-size:<?php echo $fsize::copyright;?>;
 }
 @media screen and (min-width: 736px) and (max-width: 768px) {
     .header .pull-left {
@@ -1144,7 +1158,7 @@ img {
     text-transform: none;
 }
 #reply-title {
-    font-size: <?php echo $reply_title_fontsize;?>;
+    font-size: <?php echo $fsize::reply_title;?>;
     color: #fe5d55;
     text-transform: none;
     font-weight: bold;
@@ -1153,20 +1167,20 @@ img {
 }
 .reply a {
     color: #fe5d55;
-    font-size: <?php echo $reply_title_a_fontsize;?>;
+    font-size: <?php echo $fsize::reply_title_a;?>;
     font-weight: 700;
     float: right;
     text-transform: none;
 }
 .fn,
 .says {
-    font-size: <?php echo $fn_says_fontsize;?>;
+    font-size: <?php echo $fsize::fn_says;?>;
     color: #232323;
     font-weight: 600;
     text-transform: none;
 }
 .comment-meta a {
-    font-size: <?php echo $comment_meta_a_fontsize;?>;
+    font-size: <?php echo $fsize::comment_meta_a;?>;
     color: #232323;
 }
 .comment-author {
@@ -1180,7 +1194,7 @@ img {
 }
 .footer_widget h2 {
     text-transform: none;
-    font-size: <?php echo $footer_widget_h2_fontsize;?>;
+    font-size: <?php echo $fsize::footer_widget_h2;?>;
     font-weight: 700;
     color: #232323;
 }
@@ -1189,7 +1203,7 @@ img {
 }
 .footer_widget li a {
     color: #232323;
-    font-size: <?php echo $footer_widget_li_a_fontsize;?>;
+    font-size: <?php echo $fsize::footer_widget_li_a;?>;
     padding: 0px 10px;
     margin: 8px 0px;
     display: block;
@@ -1251,38 +1265,38 @@ img.alignleft {
     /* これは一体なんなんじゃ・・・？ ソース乗せハイライトが変な風に表示されるので無効化*/
 }
 h1 {
-    font-size: <?php echo $h1_fontsize;?>;
+    font-size: <?php echo $fsize::h1;?>;
     color: #232323;
     margin-bottom: 0px;
     text-transform: none;
 }
 h2 {
-    font-size: <?php echo $h2_fontsize;?>;
+    font-size: <?php echo $fsize::h2;?>;
     color: #232323;
     margin-bottom: 10px;
     margin-top: 0;
     text-transform: none;
 }
 h3 {
-    font-size: <?php echo $h3_fontsize;?>;
+    font-size: <?php echo $fsize::h3;?>;
     color: #232323;
     margin-bottom: 10px;
     font-weight: 700;
 }
 h4 {
-    font-size: <?php echo $h4_fontsize;?>;
+    font-size: <?php echo $fsize::h4;?>;
     color: #232323;
     margin-bottom: 10px;
     font-weight: 700;
 }
 h5 {
-    font-size: <?php echo $h5_fontsize;?>x;
+    font-size: <?php echo $fsize::h5;?>x;
     color: #232323;
     margin-bottom: 10px;
     font-weight: 700;
 }
 h6 {
-    font-size: <?php echo $h6_fontsize;?>;
+    font-size: <?php echo $fsize::h6;?>;
     color: #232323;
     margin-bottom: 10px;
     font-weight: 700;
@@ -1311,12 +1325,12 @@ table {
     margin-bottom: 50px;
 }
 dt {
-    font-size: <?php echo $dt_fontsize;?>;
+    font-size: <?php echo $fsize::dt;?>;
     font-weight: 600;
     color: #232323;
 }
 dd {
-    font-size: <?php echo $dd_fontsize;?>;
+    font-size: <?php echo $fsize::dd;?>;
     padding-left: 30px;
 }
 dl {
@@ -1325,7 +1339,7 @@ dl {
 ul li {
     margin-left: 15px;
     text-align: left;
-    font-size: 15px;
+    font-size: <?php echo $fsize::ul_li;?>;
     text-align: left;
 }
 ol li {
@@ -1345,7 +1359,7 @@ pre {
     padding: 5px;
     font-weight: 400;
     color: #232323;
-    font-size: <?php echo $pre_fontsize;?>;
+    font-size: <?php echo $fsize::pre;?>;
     border: 3px dotted;
     border-color: #FFFFFF;
     background-color: #f5f5f5;
@@ -1354,13 +1368,13 @@ cite {
     font-style: normal;
 }
 big {
-    font-size: <?php echo $big_fontsize;?>;
+    font-size: <?php echo $fsize::big;?>;
 }
 /* 2015-10-15 追加 */
 /* なんでbigはあるのにsmallが用意されてないんですかねぇ… */
 
 small {
-    font-size: <?php echo $small_fontsize;?>;
+    font-size: <?php echo $fsize::small;?>;
 }
 abbr {
     text-transform: none;
@@ -1373,22 +1387,22 @@ q:before {
     content: '\f10d';
     content: open-quote;
     color: #000;
-    font-size: <?php echo $q_before_fontsize;?>;
+    font-size: <?php echo $fsize::q_before;?>;
 }
 q:after {
     content: '\f10e';
     content: close-quote;
     color: #000;
-    font-size: <?php echo $q_after_fontsize;?>;
+    font-size: <?php echo $fsize::q_after;?>;
 }
 sub,
 sup {
     color: #000;
     font-weight: 600;
-    font-size: <?php echo $sub_sup_fontsize;?>;
+    font-size: <?php echo $fsize::sub_sup;?>;
 }
 tt {
-    font-size: <?php echo $tt_fontsize;?>;
+    font-size: <?php echo $fsize::tt;?>;
     letter-spacing: 1px;
     color: #000;
 }
@@ -1510,7 +1524,7 @@ var {
 }
 #navigation > ul > li > a {
     padding: 20px;
-    font-size: <?php echo $navigation_ul_li_a_fontsize;?>;
+    font-size: <?php echo $fsize::navigation_ul_li_a;?>;
     text-decoration: none;
     text-transform: none;
     color: #000000;
@@ -1582,7 +1596,7 @@ var {
 #navigation ul ul li a {
     padding: 10px 20px;
     width: 160px;
-    font-size: <?php echo $navigation_ul_ul_li_a_fontsize;?>;
+    font-size: <?php echo $fsize::navigation_ul_ul_li_a;?>;
     background: rgba(51, 51, 51, 0.85);
     text-decoration: none;
     color: #dddddd;
