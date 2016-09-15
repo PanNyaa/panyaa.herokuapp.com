@@ -6,7 +6,7 @@
     $wbg_l_path="/wp-content/themes/plain-blog/whitening_l.png";
     $bg_haru_path="/wp-content/themes/plain-blog/harubg.png";
     
-    $DefaultFontSize                =   10;
+    $DefaultFontSize                =   11;
     $body_fontsize                  =   $DefaultFontSize / 100;
     $single_title_fontsize          =   sprintf("%fem",$body_fontsize*25);
     $p_fontsize                     =   sprintf("%fem",$body_fontsize*15);
