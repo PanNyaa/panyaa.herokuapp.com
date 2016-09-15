@@ -7,7 +7,7 @@
     $bg_haru_path="/wp-content/themes/plain-blog/harubg.png";
     
     $DefaultFontSize                =   10;
-    $body_fontsize                  =   DefaultFontSize / 100;
+    $body_fontsize                  =   $DefaultFontSize / 100;
     $single_title_fontsize          =   sprintf("%dem",$body_fontsize*25);
     $p_fontsize                     =   sprintf("%dem",$body_fontsize*15);
     $myprofile_fontsize             =   sprintf("%dem",$body_fontsize*13);
