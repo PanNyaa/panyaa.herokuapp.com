@@ -1,3 +1,5 @@
+<?php header('Content-type: text/css');?>
+
 /* ！！！スタイルシート完全に理解した！！！ */
 /*
 Theme Name: Plain Blog
@@ -11,8 +13,6 @@ Text Domain: plain-blog
 Theme URI: http://www.navthemes.com/plain-blog-theme
 Tags: white, red, threaded-comments, custom-menu
 */
-
-<?php header('Content-type: text/css');?>
 
 /* edit by pan_nyaa */
 /* <font_c class="red">～～</p> で文字色を指定できるようにしたぞい！ */
@@ -438,10 +438,10 @@ body {
     /* 雪な背景がfixedだとAndroidChromeで表示が崩れるので諦めた */
     
     background-size:
-        <?php echo $wbg_size, "px", $wbg_size, "px";?>,
-        <?php echo $wbg_size, "px", $wbg_size, "px";?>,
-        <?php echo $wbg_size, "px", $wbg_size, "px";?>,
-        <?php echo $wbg_size, "px", $wbg_size, "px";?>,
+        <?php echo $wbg_size, "px"," ", $wbg_size, "px";?>,
+        <?php echo $wbg_size, "px"," ", $wbg_size, "px";?>,
+        <?php echo $wbg_size, "px"," ", $wbg_size, "px";?>,
+        <?php echo $wbg_size, "px"," ", $wbg_size, "px";?>,
         18% auto;
         
     margin: 0;
