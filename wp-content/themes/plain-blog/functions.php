@@ -112,7 +112,7 @@ function plain_blog_loadStyles() {
 
     //Load the main theme stylesheet.
     //wp_enqueue_style('plain-blog-style', get_stylesheet_uri());
-    wp_enqueue_style('plain-blog-style', get_template_directory_uri() . '/style.css/' );
+    wp_enqueue_style('plain-blog-style', get_template_directory_uri() . '/style.css/' ,array(),'');
 
 }
 
