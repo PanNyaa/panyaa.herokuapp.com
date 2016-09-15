@@ -458,7 +458,7 @@ body {
 
 @media(max-width:361px){
     body{
-        font-size: 50%;
+        font-size: 37.5%;
     }
 }
 /**
