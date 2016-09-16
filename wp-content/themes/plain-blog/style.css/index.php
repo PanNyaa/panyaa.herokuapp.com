@@ -8,7 +8,7 @@
         const body                  =   self::DefaultFont / 100;
         const single_title          =   self::body *23  .'em';
         const page_title            =   self::body *22  .'em';
-        const page_title_h1         =   self::body *25  .'em';
+        const page_title_h1         =   self::body *15  .'em';
         const p                     =   self::body *15  .'em';
         const h_subscribe           =   self::body *20  .'em';
         const myprofile             =   self::body *10  .'em';
