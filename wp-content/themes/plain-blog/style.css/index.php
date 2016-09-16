@@ -6,14 +6,14 @@
         const DefaultFont           =   11;
         const MobileFont            =   self::DefaultFont * 0.75;    //モバイル環境用の文字サイズ
         const body                  =   self::DefaultFont / 100;
-        const single_title          =   self::body *24  .'em';
+        const single_title          =   self::body *23  .'em';
         const page_title            =   self::body *22  .'em';
         const page_title_h1         =   self::body *25  .'em';
         const p                     =   self::body *15  .'em';
         const h_subscribe           =   self::body *20  .'em';
-        const myprofile             =   self::body *13  .'em';
+        const myprofile             =   self::body *10  .'em';
         const myprofile_c           =   self::body * 8  .'em';
-        const myprofile_links       =   self::body *13  .'em';
+        const myprofile_links       =   self::body *11  .'em';
         const content_wrap_h2       =   self::body *20  .'em';
         const copyright             =   self::body *12  .'em';
         const reply_title           =   self::body *20  .'em';
@@ -30,17 +30,17 @@
         const h6                    =   self::body *15  .'em';
         const dt                    =   self::body *18  .'em';
         const dd                    =   self::body *15  .'em';
-        const pre                   =   self::body *14  .'em';
+        const pre                   =   self::body *12  .'em';
         const big                   =   self::body *20  .'em';
         const small                 =   self::body * 7.5.'em';
         const q_before              =   self::body *25  .'em';
         const q_after               =   self::body *25  .'em';
         const sub_sup               =   self::body *12  .'em';
         const tt                    =   self::body *13  .'em';
-        const ul_li                 =   self::body *10  .'em';
+        const ul_li                 =   self::body * 9  .'em';
         const navigation_ul_li_a    =   self::body *13  .'em';
         const navigation_ul_ul_li_a =   self::body *13  .'em';
-        const categories_row_ul     =   self::body *14  .'em';
+        const categories_row_ul     =   self::body *13  .'em';
     }
     
     class GSize{
