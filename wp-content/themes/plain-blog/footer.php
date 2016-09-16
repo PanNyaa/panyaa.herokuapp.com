@@ -43,10 +43,8 @@
     
     </div> <!--main_container end-->
     <?php wp_footer(); ?>
-    <script src="/dat/highlight.min.js"></script>
-<script>
-hljs.initHighlightingOnLoad();
-</script>
-<script src="/dat/jammer.js"></script>
+    <script src="/dat/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/dat/jammer.js"></script>
 </body>
 </html>
