@@ -50,7 +50,7 @@
     class Color{
         const C = [254,93,85,0.85];
         //const tagcloud_pin = 'rgba('.self::C[0].','.self::C[1].','.self::C[2].','.self::C[3].')';
-        const tagcloud_pin = time();
+        const tagcloud_pin = 0;
     }
     
     class Path{
@@ -61,7 +61,6 @@
     
 ?>
 
-<?php echo Color::tagcloud_pin;?>
 /* ！！！スタイルシート完全に理解した！！！ */
 /*
 Theme Name: Plain Blog
@@ -96,7 +95,7 @@ font_c.blue {
     content: "📌";
     margin: 0em 0.27em 0em -1.0em;
     font-size: 0.7em;
-    text-shadow: 0em -0.6em 0em <?php echo AAA::SKSKSK;?>;
+    text-shadow: 0em -0.6em 0em rgba(254,93,85,0.95);
     font-family: 'Segoe UI Symbol';
 }
 /* IE10とかのスクロールバーがコンテンツにかぶさるアレをなんとかするアレ */
