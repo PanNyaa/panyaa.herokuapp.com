@@ -30,7 +30,7 @@
         const h6                    =   self::body *15  .'em';
         const dt                    =   self::body *18  .'em';
         const dd                    =   self::body *15  .'em';
-        const pre                   =   self::body *12  .'em';
+        const pre                   =   self::body *11.5.'em';
         const big                   =   self::body *20  .'em';
         const small                 =   self::body * 7.5.'em';
         const q_before              =   self::body *25  .'em';
