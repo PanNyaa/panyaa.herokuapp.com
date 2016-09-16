@@ -3,43 +3,44 @@
 <?php
 
     class FSize{
-        const DefaultFont           =   10;
+        const DefaultFont           =   11;
         const MobileFont            =   self::DefaultFont * 0.75;    //モバイル環境用の文字サイズ
         const body                  =   self::DefaultFont / 100;
-        const single_title          =   self::body*24..'em';
-        const page_title            =   self::body*22..'em';
-        const page_title_h1         =   self::body*25..'em';
-        const p                     =   self::body*15..'em';
-        const h_subscribe           =   self::body*20..'em';
-        const myprofile             =   self::body*10..'em';
-        const myprofile_c           =   self::body* 9..'em';
-        const myprofile_links       =   self::body*10..'em';
-        const content_wrap_h2       =   self::body*20..'em';
-        const copyright             =   self::body*12..'em';
-        const reply_title           =   self::body*20..'em';
-        const reply_title_a         =   self::body*15..'em';
-        const fn_says               =   self::body*14..'em';
-        const comment_meta_a        =   self::body*13..'em';
-        const footer_widget_h2      =   self::body*15..'em';
-        const footer_widget_li_a    =   self::body*13..'em';
-        const h1                    =   self::body*30..'em';
-        const h2                    =   self::body*30..'em';
-        const h3                    =   self::body*25..'em';
-        const h4                    =   self::body*20..'em';
-        const h5                    =   self::body*18..'em';
-        const h6                    =   self::body*15..'em';
-        const dt                    =   self::body*18..'em';
-        const dd                    =   self::body*15..'em';
-        const pre                   =   self::body*14..'em';
-        const big                   =   self::body*20..'em';
-        const small                 =   self::body*10..'em';
-        const q_before              =   self::body*25..'em';
-        const q_after               =   self::body*25..'em';
-        const sub_sup               =   self::body*12..'em';
-        const tt                    =   self::body*13..'em';
-        const ul_li                 =   self::body*15..'em';
-        const navigation_ul_li_a    =   self::body*13..'em';
-        const navigation_ul_ul_li_a =   self::body*13..'em';
+        const single_title          =   self::body *24  .'em';
+        const page_title            =   self::body *22  .'em';
+        const page_title_h1         =   self::body *25  .'em';
+        const p                     =   self::body *15  .'em';
+        const h_subscribe           =   self::body *20  .'em';
+        const myprofile             =   self::body *13  .'em';
+        const myprofile_c           =   self::body * 8  .'em';
+        const myprofile_links       =   self::body *13  .'em';
+        const content_wrap_h2       =   self::body *20  .'em';
+        const copyright             =   self::body *12  .'em';
+        const reply_title           =   self::body *20  .'em';
+        const reply_title_a         =   self::body *15  .'em';
+        const fn_says               =   self::body *14  .'em';
+        const comment_meta_a        =   self::body *13  .'em';
+        const footer_widget_h2      =   self::body *15  .'em';
+        const footer_widget_li_a    =   self::body *13  .'em';
+        const h1                    =   self::body *30  .'em';
+        const h2                    =   self::body *30  .'em';
+        const h3                    =   self::body *25  .'em';
+        const h4                    =   self::body *20  .'em';
+        const h5                    =   self::body *18  .'em';
+        const h6                    =   self::body *15  .'em';
+        const dt                    =   self::body *18  .'em';
+        const dd                    =   self::body *15  .'em';
+        const pre                   =   self::body *14  .'em';
+        const big                   =   self::body *20  .'em';
+        const small                 =   self::body * 7.5.'em';
+        const q_before              =   self::body *25  .'em';
+        const q_after               =   self::body *25  .'em';
+        const sub_sup               =   self::body *12  .'em';
+        const tt                    =   self::body *13  .'em';
+        const ul_li                 =   self::body *10  .'em';
+        const navigation_ul_li_a    =   self::body *13  .'em';
+        const navigation_ul_ul_li_a =   self::body *13  .'em';
+        const categories_row_ul     =   self::body *14  .'em';
     }
     
     class GSize{
@@ -793,7 +794,7 @@ img {
     background: none repeat scroll 0 0 rgba(255, 255, 255, 0.0);
     display: block;
     font-family: Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    font-size: 1.4em;
+    font-size: <?php echo FSize::categories_row_ul;?>;
     margin: -50px auto auto;
     padding: 80px 0px 20px 0px;
     text-align: center;
