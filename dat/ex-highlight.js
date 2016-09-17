@@ -6,4 +6,4 @@ $(function() {
     
     hljs.highlightBlock(block);
   }
-)};
+)});
