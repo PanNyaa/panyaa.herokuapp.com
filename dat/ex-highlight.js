@@ -5,6 +5,7 @@ function LangNameNormalize(str){
     if(str == "javascript")return "JavaScript";
     if(str == "perl")return "Perl";
     if(str == "bash")return "Bash";
+    return str;
 }
 
 //WordPressで使うときは $ じゃなくて jQuery にしないとダメみたい……
