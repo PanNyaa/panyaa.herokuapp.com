@@ -1,6 +1,6 @@
 jQuery(function(){
 
-    jQuery("code").each(function(i, block) {
+    jQuery("pre code").each(function(i, block) {
         console.log(block.classList);
         
         
