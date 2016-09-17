@@ -1,6 +1,6 @@
 $(function() {
   $(“pre code”).each(function(i, block) {
-    block.classList; // これをあれこれする //ここにクラス名が入っている？
+    //block.classList; // これをあれこれする //ここにクラス名が入っている？
     
     console.log(block.classList);
     
