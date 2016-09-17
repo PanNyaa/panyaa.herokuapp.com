@@ -1,6 +1,6 @@
 jQuery(function(){
 	
-	var pre[] = document.getElementsByTagName('pre');	//pre には配列で<pre>にアクセス可能なアレがpreの個数分入る
+	var pre = document.getElementsByTagName('pre');	//pre には配列で<pre>にアクセス可能なアレがpreの個数分入る
 	
 	//console.log(pre);
 	//↑の実行結果 HTMLCollection [ <pre>, <pre>, <pre>, <pre> ]
