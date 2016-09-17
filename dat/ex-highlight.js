@@ -1,6 +1,6 @@
 $(function() {
-  $(gpre codeh).each(function(i, block) {
-    //block.classList; // ‚±‚ê‚ğ‚ ‚ê‚±‚ê‚·‚é //‚±‚±‚ÉƒNƒ‰ƒX–¼‚ª“ü‚Á‚Ä‚¢‚éH
+  $(â€œpre codeâ€).each(function(i, block) {
+    //block.classList; // ã“ã‚Œã‚’ã‚ã‚Œã“ã‚Œã™ã‚‹ //ã“ã“ã«ã‚¯ãƒ©ã‚¹åãŒå…¥ã£ã¦ã„ã‚‹ï¼Ÿ
     
     console.log(block.classList);
     
