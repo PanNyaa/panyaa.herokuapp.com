@@ -7,19 +7,19 @@ jQuery(function(){
 	//たとえばpreが4個見つかったのならpre[0] ~ pre[3] でいじれるぞ！
 
     jQuery("pre code").each(function(i, block) {
-        console.log(block.classList[1]);	//block.classList[1]でpre codeタグのクラスの二番目(hljs php←これ)が入ってるぞ！
+        //block.classList[1]でpre codeタグのクラスの二番目(hljs php←これ)が入ってるぞ！
         
+        //divタグで作りまーす
         var div = document.createElement('div');
+        
+        //言語名追加
         div.textContent = block.classList[1];
 
-		//class追加
-		pre[i].classList.add('hl-header');
+		//divにclass追加
+		div.classList.add('hl-header');
 		
-		
-		
-		
-		
-		pre[i].appendChild(div);
+		//pre要素の最初の子要素として追加
+		pre[i].insertBefore(div,pre[i].firstChild);
 
         
     });
