@@ -13,7 +13,7 @@ jQuery(function(){
         div.textContent = block.classList[1];
 
 		//class追加
-		element.classList.add('hl-header');
+		pre[i].classList.add('hl-header');
 		
 		
 		
