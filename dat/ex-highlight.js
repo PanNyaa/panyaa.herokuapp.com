@@ -30,7 +30,6 @@ jQuery(function(){
         div = document.createElement('div');
         
         //言語名追加
-        
         div.textContent = LangNameNormalize(block.classList[j]);
 
         //divにclass追加、CSSでいじれ！
