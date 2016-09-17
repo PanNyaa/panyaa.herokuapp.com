@@ -44,11 +44,8 @@
     }
     
     /* Size::pre::p */
-    class Size{
-        class pre{
-            const p = '1em';    //padding
-            const m = '0em';    //margin
-        }
+    class PSize{
+        const pre = '1em';    //padding 
     }
     
     class GSize{
@@ -1367,7 +1364,7 @@ p strong {
     color: #333;
 }
 pre {
-    padding: <?php echo Size::pre::p?>;
+    padding: <?php echo PSize::pre?>;
     font-weight: 400;
     color: #232323;
     font-size: <?php echo FSize::pre;?>;
