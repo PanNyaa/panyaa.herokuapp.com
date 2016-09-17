@@ -44,8 +44,9 @@
     </div> <!--main_container end-->
     <?php wp_footer(); ?>
     <script src="/dat/highlight.pack.js"></script>
+    <script>hljs.initHighlighting()</script>
     <script src="/dat/ex-highlight.js"></script>
-    <script>hljs.initHighlightingOnLoad();code_head();</script>
     <script src="/dat/jammer.js"></script>
 </body>
 </html>
+
