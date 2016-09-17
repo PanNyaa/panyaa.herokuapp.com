@@ -12,7 +12,7 @@ jQuery(function(){
     jQuery("pre code").each(function(i, block) {
         //block.classList[1]にはcodeタグのクラスの二番目(hljs php←これ)が入ってるぞ！
         //codeに予めクラス名で言語指定していた場合はこの順番が逆転するのでそれへの対応
-        var j = block.classList[1] != 'hljs' ? 1 ; 0;
+        var j = block.classList[1] != 'hljs' ? 1 : 0;
         
         //divタグで作りまーす
         var div = document.createElement('div');
