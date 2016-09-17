@@ -37,4 +37,4 @@
         var len = String(str).length;
         return Array(4 - len).join(' ') + str;
     }
-})(document);
+});
