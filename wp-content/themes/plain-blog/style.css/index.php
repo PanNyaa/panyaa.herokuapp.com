@@ -1,7 +1,7 @@
 <?php header('Content-type: text/css');?>
 
 <?php
-
+    
     class FSize{
         const DefaultFont           =   11;
         const MobileFont            =   self::DefaultFont * 0.75;    //モバイル環境用の文字サイズ
@@ -41,6 +41,14 @@
         const navigation_ul_li_a    =   self::body *13  .'em';
         const navigation_ul_ul_li_a =   self::body *13  .'em';
         const categories_row_ul     =   self::body *13  .'em';
+    }
+    
+    /* Size::pre::p */
+    class Size{
+        class pre{
+            const p = '1em';    //padding
+            const m = '0em';    //margin
+        }
     }
     
     class GSize{
@@ -1359,7 +1367,7 @@ p strong {
     color: #333;
 }
 pre {
-    padding: 5px;
+    padding: <?php echo Size::pre::p?>;
     font-weight: 400;
     color: #232323;
     font-size: <?php echo FSize::pre;?>;
