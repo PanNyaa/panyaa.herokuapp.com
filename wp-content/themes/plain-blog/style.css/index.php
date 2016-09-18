@@ -43,7 +43,7 @@
         const categories_row_ul     =   self::body *13  .'em';
     }
     
-    /* Size::pre::p */
+    /* Size::pre::p ってしたかったけど諦めた…… */
     class PSize{
         const pre = '1em';    //padding 
     }

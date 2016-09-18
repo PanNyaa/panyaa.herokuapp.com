@@ -37,6 +37,10 @@ jQuery(function(){
 
         //pre要素の最初の子要素として追加
         pre[i].insertBefore(div,pre[i].firstChild);
+        
+        //ここまではdiv hl-header要素の追加
+        
+        
 
     });
 

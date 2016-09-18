@@ -1,5 +1,21 @@
 <?php
 
+//<pre><code></code></pre>内のコードをエスケープする
+function escape_short_code( $attr, $content = null ){
+    $content = clean_pre($content);
+    $content = trim($content);
+    $content = str_replace("\t", '    ',  $content);
+    $content = str_replace( '<', '&lt',   $content);
+    $content = str_replace( '>', '&gt',   $content);
+    $content = str_replace( '&', '&ampt', $content);
+    $content = str_replace( '`', '&#x60', $content);
+    $content = str_replace('\'', '&#x27', $content);
+    $content = str_replace('\"', '&quot', $content);
+    
+    return '<pre><code>'.$content.'</code></pre>';
+}
+add_shortcode('code', 'escape_short_code');
+
 //WordPressで相対パスを使用させる
 function make_href_root_relative($input) {
     return preg_replace('!http(s)?://' . $_SERVER['SERVER_NAME'] . '/!', '/', $input);
