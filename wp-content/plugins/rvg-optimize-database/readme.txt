@@ -3,13 +3,13 @@ Contributors: CAGE Web Design | Rolf van Gelder
 Donate link: http://cagewebdev.com/index.php/donations-odb/
 Plugin Name: Optimize Database after Deleting Revisions
 Plugin URI: http://cagewebdev.com/index.php/optimize-database-after-deleting-revisions-wordpress-plugin
-Tags: database, delete, revisions, optimize, post, posts, page, pages, clean, clean up, trash, spam, trashed, spammed, database size, scheduler, transients, unused tags, pingback, trackback, unix cron tab, crontab
+Tags: database, delete, revisions, optimize, post, posts, page, pages, clean, clean up, trash, spam, trashed, spammed, database size, scheduler, transients, unused tags, pingback, trackback, unix cron tab, crontab, multisite
 Author URI: http://cagewebdev.com
 Author: CAGE Web Design | Rolf van Gelder, Eindhoven, The Netherlands
 Requires at least: 2.8
-Tested up to: 4.6
-Stable tag: 4.1.10
-Version: 4.1.10
+Tested up to: 4.6.1
+Stable tag: 4.2.0
+Version: 4.2.0
 License: GPLv2 or later
 
 == Description ==
@@ -99,6 +99,10 @@ http://cagewebdev.com/index.php/wordpress-plugins/
 * 'Network Activate' the plugin
 * The settings are the same for ALL sites in the network, so if you change a setting for one site, it will be used for all other sites.
 * If you run the plugin from any of the sites, it will cleanup ALL the sites in the network!
+
+== Changelog ==
+= 4.2.0 [09/16/2016] =
+* NEW: Added a 'monthly' schedule to the scheduler
 
 == Changelog ==
 = 4.1.10 [07/15/2016] =
