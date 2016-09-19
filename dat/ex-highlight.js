@@ -13,6 +13,9 @@ function AddElements(elm,div){
    
    jQuery("pre code").each(function(i, block){
         
+        //divタグで作りまーす。div変数はオブジェクトになるのかな？
+        const div = document.createElement('div');
+        
         //言語名追加
         //block.classList[1]にはcodeタグのクラスの二番目(hljs php←これ)が入ってるぞ！
         //codeに予めクラス名で言語指定していた場合はこの順番が逆転するのでそれへの対応も
@@ -34,7 +37,6 @@ jQuery(function(){
 
     //pre には配列でpreにアクセス可能なアレがpreの個数分入る
     //たとえばpreが4個見つかったのならpre[0] ~ pre[3] でいじれるぞ！
-    //divタグで作りまーす。div変数はオブジェクトになるのかな？
-    AddElements(document.getElementsByTagName('pre'),document.createElement('div'));
+    AddElements(document.getElementsByTagName('pre'));
 
 });
