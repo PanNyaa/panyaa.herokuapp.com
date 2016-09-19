@@ -19,13 +19,13 @@ function AddElements(elm){
         
         //言語名追加
         //codeに予めクラス名で言語指定していた場合はこの順番が逆転するのでそれへの対応も
-        div.textContent = LangNameNormalize(block.classList[block.classList[1] != 'hljs' ? 1:0 ]);
+        div.textContent = LangNameNormalize(block.classList[ block.classList[1] != 'hljs' ? 1:0 ]);
 
         //divにclass追加、CSSでいじれ！
         div.classList.add('hl-header');
 
         //pre要素の最初の子要素として追加
-        elm[i].insertBefore(div,pre[i].firstChild);
+        elm[i].insertBefore(div,elm[i].firstChild);
 
     });
    
