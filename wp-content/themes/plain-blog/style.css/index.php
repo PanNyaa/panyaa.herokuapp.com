@@ -1064,7 +1064,7 @@ img {
     }
     .nav ul li {
         float: left !important;
-        padding-bottom: 1em;
+        padding-bottom: 1em; /**/
     }
     .add_section img {
         max-width: 100%;
@@ -1106,7 +1106,7 @@ img {
     }
     .sidebar img {
         width: auto;
-        margin-bottom: 1em;
+        margin-bottom: 0.5em;
     }
     .popular_post,
     .categories_section {
