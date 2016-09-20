@@ -31,7 +31,7 @@ function LangNameNormalize(str) {
             //div要素にクラスを追加、CSSでいじれるぞ！
             div.classList.add('hl-header');
 
-            //要素をcode要素の直前(preとの間)に追加
+            //div要素をcode要素の直前(preとの間)に追加
             //blockは自動インクリメントされて次のpre code要素が読み込まれる
             block.parentNode.insertBefore(div, block);
 

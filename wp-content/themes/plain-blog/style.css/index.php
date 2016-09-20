@@ -964,6 +964,15 @@ img {
     margin-bottom: 1.5em;
     /* サイドバーの縦の隙間を狭く */
 }
+
+.widget_archive ul li {
+    list-style: none;
+    float: left;
+    display: block;
+    width: 100%;
+    padding: 0.2em 1.5em !important;
+}
+
 .categories_section ul,
 .sidebar_widget ul,
 .widget_recent_entries ul,
