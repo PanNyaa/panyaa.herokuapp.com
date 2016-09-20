@@ -298,8 +298,11 @@ pre code {
     margin: -0.1em 0em 0em 0em;
 }
 #myprofile_links_c a {
-    display: flex;  /* Flex最高～～～～～～☆ */
-    margin: 0.2em 0em;
+    display: flex;
+    margin: 0.7em 0em;
+    flex-direction: row;
+    line-height: 1.00;
+    align-items: center;
 }
 #sns_bts {
     vertical-align: top;
