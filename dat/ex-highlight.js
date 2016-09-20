@@ -28,4 +28,4 @@ function LangNameNormalize(str) {
       block[i].insertBefore(div, block[i].firstChild);
     }
   );
-});
+})();
