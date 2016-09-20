@@ -910,7 +910,7 @@ img {
     margin: auto;
     background: rgba(254, 93, 85, 0.85) none repeat scroll 0% 0%;
     position: relative;
-    top: -1.8em;
+    top: -0.9em;
     border-radius: 30px;
 }
 .search_section {
@@ -958,7 +958,7 @@ img {
 .widget_recent_entries,
 .widget_archive {
     background: rgba(255, 255, 255, 0.85);
-    padding: 1em 1.5em;
+    padding: 0.35em 1.5em;
     border: 1px solid #eee;
     text-align: left;
     margin-bottom: 1.5em;
