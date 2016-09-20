@@ -8,7 +8,7 @@ function LangNameNormalize(str){
     return str;
 }
 
-//WordPressで使うときは $ じゃなくて jQuery にしないとダメみたい……
+//WordPressで使うときは $ じゃなくて jQuery にしないとダメみたい……だけどjqueryを使わないようにしてみたぞ！
 //無名関数なので即時実行されるぞ！
 !(function(){
 
