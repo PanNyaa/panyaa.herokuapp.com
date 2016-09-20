@@ -16,6 +16,7 @@ function LangNameNormalize(str){
     //たとえばpreが4個見つかったのならblock[0] ~ block[3] でいじれるぞ！
     document.querySelectorAll("pre code").forEach(function(block,i){
         
+        //追加するためのdiv要素の定義
         const div = document.createElement('div');
         
         //言語名追加
