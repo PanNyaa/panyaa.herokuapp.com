@@ -93,6 +93,7 @@ font_c.blue {
     color: #0000FF;
 }
 
+
 /* タグクラウドの押しピン記号 */
 
 .tagcloud a::before {
@@ -250,20 +251,23 @@ pre code {
     background: rgba(255, 255, 255, 0.85);
     padding: 0.1em 3em 0em 3em;
 }
+
+
+.textwidget {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /* アクセスカウンターをｵｻﾚに包む用 */
 /* <div id="accesscounter"> ～ </div> */
-
-#accesscounter {
-    /*    background: rgba(255, 255, 255, 0.33) none repeat scroll 0% 0%;
-    padding: 0em 3em;
-    border: 2px outset rgba(0,224,255,0.15);
-*/
-    
+#accesscounter {    
     color: rgb(0, 85, 221);
     background: rgba(255, 255, 255, 0.50) none repeat scroll 0% 0%;
-    padding: 0em 3em;
+    /*padding: 0em 3em;*/
     border: 2px dotted rgba(0, 224, 255, 0.25);
     border-radius: 30px;
+    margin-bottom: 1em;
 }
 #myprofile {
     color: rgb(0, 85, 221);
@@ -272,6 +276,7 @@ pre code {
     border: 2px dotted rgba(0, 224, 255, 0.25);
     border-radius: 30px;
     font-size: <?php echo FSize::myprofile;?>;
+    margin-bottom: 1em;
 }
 #myprofile_c {
     padding: 0.5em 0em 0em 1em;
@@ -281,6 +286,7 @@ pre code {
     background: rgba(255, 255, 255, 0.50) none repeat scroll 0% 0%;
     border: 2px dotted rgba(0, 224, 255, 0.25);
     border-radius: 30px;
+    margin-bottom: 1em;
 }
 #myprofile_links {
     color: rgb(0, 85, 221);
@@ -290,6 +296,10 @@ pre code {
 #myprofile_links_c {
     padding: 0.0em 0em 0em 0.91em;
     margin: -0.1em 0em 0em 0em;
+}
+#myprofile_links_c a {
+    display: flex;  /* Flex最高～～～～～～☆ */
+    margin: 0.2em 0em;
 }
 #sns_bts {
     vertical-align: top;
@@ -301,15 +311,6 @@ pre code {
     text-align: center;
     left: 0.5em;
     bottom: 0.5em;
-    /* 古いの↓ */
-    /*
-    text-align: left;
-	background: rgba(255, 255, 255, 0.33) none repeat scroll 0% 0%;
-	border: 2px dotted rgba(0, 224, 255, 0.25);
-	border-radius: 30px;
-	vertical-align: top;
-	padding: 0em 1.5em;
-*/
 }
 #sns_bts_cs {
     padding: 0.5em;
