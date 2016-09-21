@@ -37,7 +37,7 @@ function LangNameNormalize(str) {
             //言語名テキストの追加
             //クリップボードにコピーするボタンのテキスト(絵文字)追加
             hl_lang.textContent = LangNameNormalize(block.classList[j]);
-            hl_copybtn.textContent = "📎";
+            hl_copybtn.textContent = "📥"; //📎
           
             //onClickイベントを追加
             //onClickが存在するhl-copybtnの親要素hl-headerの次の要素codeを指定
