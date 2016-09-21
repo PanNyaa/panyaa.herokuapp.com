@@ -1,3 +1,12 @@
+
+@font-face {
+    font-family: 'mgen_1mnregular';
+    src:url('/WebFonts/mgenplus-1mn-regular-webfont-t.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .hljs {
     background: #fcfcfc;
     font-family: "mgen_1mnregular";
