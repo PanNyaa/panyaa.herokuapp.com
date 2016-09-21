@@ -63,9 +63,10 @@ function LangNameNormalize(str) {
 //引数をthisとすればonClickが存在する場所の要素を取得できる
 function CopyClipBoard(elm){
     const range = document.createRange();
+    const selection = window.getSelection();
 
     //確実に選択範囲を確定するために既存の選択範囲を解除
-    deSelect();
+    selection.removeAllRanges();
 
     //elm内のテキスト全部を選択範囲に追加
     range.selectNodeContents(elm);
@@ -77,19 +78,5 @@ function CopyClipBoard(elm){
     document.execCommand('copy');
 
     //コピーし終わったので選択範囲を解除
-    deSelect();
+    selection.removeAllRanges();
 }
-
-//選択状態を全解除するやつ
-function deSelect() {
-    if (window.getSelection){
-        const selection = window.getSelection();
-        selection.collapse(document.body, 0);
-    }
-    else{
-        const selection = document.selection.createRange();
-        selection.setEndPoint("EndToStart", selection);
-        selection.select();
-    }
-}
-
