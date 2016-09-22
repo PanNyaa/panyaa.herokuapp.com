@@ -1,0 +1,76 @@
+<div id="accesscounter"><?php get_template_part("accsesscounter"); ?></div>
+<div id="myprofile">
+Author:ぱんにゃあ(p°ω°)p
+<div id="myprofile_c">
+主にTwitterで活動してます。<br/>
+ブログ書いたり、Stepmania自作譜面の公開をしたりします。<br/>
+<br/>
+ご連絡ある場合はTwitterへどうぞ～☆<br/>
+<br/>
+記事コメントよりもTwitterでコンタクトをとってもらったほうが色々と対応が速いです。<br>
+頂いた記事コメントは全て読んでいます☆<br>
+</div></div>
+<div id="myprofile_links_wrap">
+
+<div id="myprofile_links">
+SNSなど
+<div id="myprofile_links_c">
+<a href="https://twitter.com/pan_nyaa" target="_blank" title="ぱんにゃあはTwitterを使用しています">
+<img src="/wp-content/uploads/icons/twitter.ico" width="16" height="16" >Twitter</a>
+<a href="http://twpf.jp/pan_nyaa" target="_blank" title="ｱﾙﾊｧﾂｲｯﾀﾗｰです✌('ω')(白目">
+<img src="/wp-content/uploads/icons/twpf.ico" width="16" height="16" >ツイフィール</a>
+<a href="http://www.amazon.co.jp/registry/wishlist/221H2AMHJNFQP/ref=cm_sw_r_tw_ws_Ge6vtb0PTEHN9" target="_blank" title="干し芋のリストですん♡">
+<img src="/wp-content/uploads/icons/Amazon.ico" width="16" height="16" align="top">ほしいもリスト</a>
+<a href="http://ask.fm/PanNyaa" target="_blank" title="なんでも質問してくだしあ♡">
+<img src="/wp-content/uploads/icons/askfm.ico" width="16" height="16" align="top">Ask.fm</a>
+</div></div>
+<div id="myprofile_links">
+プログラミングしてます
+<div id="myprofile_links_c">
+<a href="https://github.com/PanNyaa" target="_blank" title="ﾌﾟﾖﾖﾖﾖﾝﾖできません…">
+<img src="/wp-content/uploads/icons/github.ico" width="16" height="16" align="top">Github</a>
+<a href="https://gist.github.com/PanNyaa" target="_blank" title="C言語たのしい！✌('ω'✌ )三✌('ω')✌三( ✌'ω')✌">
+<img src="/wp-content/uploads/icons/github.ico" width="16" height="16" align="top">Github Gist</a>
+</div></div>
+<div id="myprofile_links">
+動画投稿してます
+<div id="myprofile_links_c">
+<a href="http://www.nicovideo.jp/user/27965387/video" target="_blank" title="あんまり投稿してません">
+<img src="/wp-content/uploads/icons/niconico.ico" width="16" height="16" align="top">ニコニコ動画</a>
+<a href="https://www.youtube.com/channel/UCFerdshjHRKVCpGq31SdJJQ/videos?view_as=public" target="_blank" title="こっちは更に少ないっ＞＜">
+<img src="/wp-content/uploads/icons/youtube.ico" width="16" height="16" align="top">YouTube</a>
+</div></div>
+<div id="myprofile_links">
+作曲してます
+<div id="myprofile_links_c">
+<a href="http://tmbox.net/user/pan_nyaa/sound" target="_blank" title="作曲がんばってます(途中のばっかりだけど)">
+<img src="/wp-content/uploads/icons/tmbox.ico" width="16" height="16" align="top">TMBOX(主にｺｺ)</a>
+<a href="https://creofuga.net/pan-nyaa" target="_blank" title="声しかないです">
+<img src="/wp-content/uploads/icons/creofuga.ico" width="16" height="16" align="top">クレオフーガ</a>
+<a href="https://soundcloud.com/pan-nyaa" target="_blank" title="完成品とか投げていきたい">
+<img src="/wp-content/uploads/icons/soundcloud.ico" width="16" height="16" align="top">SoundCloud</a>
+<a href="http://www.muzie.ne.jp/artist/r049570" target="_blank" title="あまり使ってないですが一応">
+<img src="/wp-content/uploads/icons/muzie.ico" width="16" height="16" align="top">Muzie</a><br>
+</div></div>
+<div id="myprofile_links">
+その他分類しづらいもの
+<div id="myprofile_links_c">
+<a href="http://commons.nicovideo.jp/user/1409011" target="_blank" title="素材あります！">
+<img src="/wp-content/uploads/icons/nicommons.ico" width="16" height="16" align="top">ニコニ･コモンズ</a>
+<a href="http://www.pixiv.net/member.php?id=4327151" target="_blank" title="R-18注意！">
+<img src="/wp-content/uploads/icons/pixiv.ico" width="16" height="16" align="top">pixiv</a>
+</div></div>
+
+</div>
+
+<div id="myprofile_links_wrap">
+<div id="myprofile_links">
+✨相互リンク✨
+<div id="myprofile_links_c">
+<small>敬称略です。</small>
+<a href="http://homomaid.com/" target="_blank">🌟ほもめいどどっとこむ</a></div></div></div>
+<a href="https://twitter.com/pan_nyaa" class="twitter-timeline"    
+data-widget-id="366022156569702400" 
+data-chrome="noborders noheader noscrollbar transparent nofooter"
+>@pan_nyaa からのツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
