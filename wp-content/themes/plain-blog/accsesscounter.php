@@ -144,7 +144,7 @@
     echo "<div class=\"counter-ty\">あくせすかうんた<br><br></div>\n";
     echo "<div class=\"counter-num\">",sprintf("%06d", $counts[0]),"</div>";
     echo "<div class=\"counter-ty\"><br>今日：", $counts[1], "　昨日：", $counts[2], "</div>\n";
-    //echo $_REQUEST['fpk'];
+    echo $_REQUEST['fpk'];
 
 ?>
 
