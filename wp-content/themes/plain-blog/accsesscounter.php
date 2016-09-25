@@ -1,3 +1,7 @@
+<?php 
+    session_start();    //一番初めにセッションを開始
+?>
+
 <style type"text/css">
 
 /* Webフォントの読み込み */
@@ -31,8 +35,6 @@
 </style>
 
 <?php
-
-    session_start();    //一番初めにセッションを開始
 
     error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED);   //Deprecated 抑制
     date_default_timezone_set('Asia/Tokyo');            //タイムゾーンを日本に設定しま～～～す
