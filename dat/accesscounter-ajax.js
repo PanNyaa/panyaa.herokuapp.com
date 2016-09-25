@@ -22,7 +22,7 @@ function AddCSS(path){  //その名の通りの関数
             console.log("通信性交");
             result.innerHTML = req.responseText;
         }
-    }
+    };
 
     req.open('POST', 'accesscounter.php', true);
     req.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=UTF-8');
