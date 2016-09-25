@@ -26,7 +26,7 @@ function AddCSS(path){  //その名の通りの関数
         }
     };
 
-    req.open('POST', '/dat/accesscounter.php', true);
+    req.open('POST', '/wp-content/themes/plain-blog/accesscounter.php', true);
     req.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=UTF-8');
     req.send('fpk=' + 'test');
 }();
