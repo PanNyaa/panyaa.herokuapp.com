@@ -58,7 +58,7 @@
     $ipdata = "0.0.0.0 0.0.0.0";;   //仮データを入れておく
     $iptable = [0];
     
-    $finger_print = new Fingerprint2().get(function(result){console.log(result);});
+    //$finger_print = new Fingerprint2().get(function(result){console.log(result);});
 
     $path_countdata = "/data/countdata.dat";    //ファイルパスなので適宜いじってください
     $path_ipdata = "/data/ipdata.dat";          //※ファイルパスの先頭には / もしくは ./ が必須なようです(無い場合はsdk側でエラーが出る)
