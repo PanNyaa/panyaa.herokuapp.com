@@ -6,7 +6,7 @@ req.onreadystatechange = function() {
       this.innerHTML = req.responseText;
     }
   }else{
-    result.innerHTML = "まだだよ"
+    this.innerHTML = "まだだよ"
   }
 }
 
