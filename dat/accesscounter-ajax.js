@@ -10,7 +10,7 @@ function AddCSS(path){  //その名の通りの関数
 
 !function(){
     const req = new XMLHttpRequest();
-    AddCSS("/dat/accesscounter.css");
+    //AddCSS("/dat/accesscounter.css");
     req.onreadystatechange = function() {
         var result = document.getElementById('accesscounter');
         if (req.readyState == 4) { // 通信の完了時
