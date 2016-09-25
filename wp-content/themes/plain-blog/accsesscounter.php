@@ -92,7 +92,7 @@
     $ipdata = "0.0.0.0 0.0.0.0";;   //仮データを入れておく
     $iptable = [0];
     
-    $finger_print = new Fingerprint2().get(function(result){console.log(result);});
+    //$finger_print = new Fingerprint2().get(function(result){console.log(result);});
 
     $path_countdata = "/data/countdata.dat";    //ファイルパスなので適宜いじってください
     $path_ipdata = "/data/ipdata.dat";          //※ファイルパスの先頭には / もしくは ./ が必須なようです(無い場合はsdk側でエラーが出る)
@@ -144,7 +144,7 @@
     echo "<div class=\"counter-ty\">あくせすかうんた<br><br></div>\n";
     echo "<div class=\"counter-num\">",sprintf("%06d", $counts[0]),"</div>";
     echo "<div class=\"counter-ty\"><br>今日：", $counts[1], "　昨日：", $counts[2], "</div>\n";
-    echo $_REQUEST['fpk'];
+    //echo $_REQUEST['fpk'];
 
 ?>
 
