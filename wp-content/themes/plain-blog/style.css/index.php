@@ -1119,7 +1119,7 @@ img {
     }
     .sidebar img {
         width: auto;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.0em;
     }
     .popular_post,
     .categories_section {

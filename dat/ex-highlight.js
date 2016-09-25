@@ -63,7 +63,7 @@ function LangNameNormalize(str) {
 //引数をthisとすればonClickが存在する場所の要素を取得できる
 function CopyClipBoard(elm){
     const range = document.createRange();
-    const selection = window.getSelection();
+    const selection = window.getSelection();//chromeの場合必須
 
     //確実に選択範囲を確定するために既存の選択範囲を解除
     selection.removeAllRanges();
