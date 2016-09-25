@@ -12,22 +12,20 @@ function AddCSS(path){  //その名の通りの関数
     const req = new XMLHttpRequest();
     //AddCSS("/dat/accesscounter.css");
     req.onreadystatechange = function() {
-        var result = document.getElementById('accesscounter');
+        const result = document.getElementById('accesscounter');
         if (req.readyState == 4) { // 通信の完了時
             console.log("通信完了");
-            if (req.status == 200) { // 通信の成功時
-                console.log("通信性交");
-                result.innerHTML = req.responseText;
-            }
-        }
-        else
-        {
+        }else{
             result.innerHTML = "まだだよ"
+        }
+        if (req.status == 200) { // 通信の成功時
+            console.log("通信性交");
+            result.innerHTML = req.responseText;
         }
     }
 
     req.open('POST', 'accesscounter.php', true);
     req.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=UTF-8');
-    req.send('fpk=' + 'test'); //にゃーん
+    req.send('fpk=' + 'test');
 }();
 
