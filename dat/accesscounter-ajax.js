@@ -1,16 +1,5 @@
-function AddCSS(path){  //その名の通りの関数
-    const d = document;
-    const link = d.createElement('link');
-    const h = d.getElementsByTagName('head')[0];
-    link.href = path;
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    h.appendChild(link);
-}
-
 !function(){
     const req = new XMLHttpRequest();
-    //AddCSS("/dat/accesscounter.css");
     req.onreadystatechange = function() {
         const result = document.getElementById('accesscounter');
         if (req.readyState == 4) { // 通信の完了時
