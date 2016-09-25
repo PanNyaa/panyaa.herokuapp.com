@@ -41,6 +41,7 @@
     //手動で配置したdropbox-sdkを読み込む。ファイルパスはphpの場所に応じて適宜書き換えてください。
     //require_once dirname(__FILE__)."/../../../lib/Dropbox/autoload.php";
     //require('/vendor/autoload.php'); //heroku上にdropbox-sdkがインストールできたのでどこからでもお手軽インクルード
+    namespace Controllers;
 
     // \Dropbox を dbx としても記述できるように定義する
     use \Dropbox as dbx;
