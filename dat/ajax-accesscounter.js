@@ -11,7 +11,7 @@ req.onreadystatechange = function() {
   }
 }
 
-req.open('POST', '../wp-content/themes/plain-blog/accesscounter.php', true);
+req.open('POST', 'accesscounter.php', true);
 req.setRequestHeader('content-type',
   'application/x-www-form-urlencoded;charset=UTF-8');
 req.send('fpk=' + 'test');
