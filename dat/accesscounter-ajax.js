@@ -21,6 +21,8 @@ function AddCSS(path){  //その名の通りの関数
         if (req.status == 200) { // 通信の成功時
             console.log("通信性交");
             result.innerHTML = req.responseText;
+        }else {
+            console.log('Error:'.req.status);
         }
     };
 
