@@ -1,7 +1,7 @@
 !function(){
     const req = new XMLHttpRequest();
     
-    
+    const hash = new Fingerprint2().get(function(result){return result;});
     
     req.onreadystatechange = function() {
         const result = document.getElementById('accesscounter');
@@ -20,6 +20,6 @@
 
     req.open('POST', '/wp-content/themes/plain-blog/accesscounter.php', true);
     req.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=UTF-8');
-    req.send('fpk=' + 'test');
+    req.send('fpk=' + hash);
 }();
 
