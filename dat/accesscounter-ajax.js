@@ -1,8 +1,9 @@
 !function(){
     const req = new XMLHttpRequest();
     
-    const hash = new Fingerprint2().get(function(result){console.log(result);return result;});
-    
+    new Fingerprint2().get(hash);
+    console.log(hash);
+        
     req.onreadystatechange = function() {
         const result = document.getElementById('accesscounter');
         if (req.readyState == 4) { // 通信の完了時
