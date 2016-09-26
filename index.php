@@ -14,7 +14,7 @@
  
 /* herokuに置いたライブラリ群を、vendor/autoload.phpでここで読み込むことですべてのphp内で使えるようになるぞ！ */
 require_once('vendor/autoload.php');
-use Controllers\MyController;
+//use Controllers\MyController;
 
 define('WP_USE_THEMES', true);
 
