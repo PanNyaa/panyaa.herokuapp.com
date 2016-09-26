@@ -1,26 +1,25 @@
 !function(){
     const req = new XMLHttpRequest();
-    
-    new Fingerprint2().get(hash);
-    console.log(hash);
-        
+
     req.onreadystatechange = function() {
         const result = document.getElementById('accesscounter');
         if (req.readyState == 4) { // 通信の完了時
-            console.log("通信完了");
             if (req.status == 200) { // 通信の成功時
-                console.log("通信性交");
                 result.innerHTML = req.responseText;
             }else {
+                console.log("エラーが発生しました：");
                 console.log(req.status);
             }
         }else{
-            result.innerHTML = "まだだよ"
+            result.innerHTML = "アクセスカウンターが表示される予定のところ";
         }
     };
 
-    req.open('POST', '/wp-content/themes/plain-blog/accesscounter.php', true);
-    req.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=UTF-8');
-    req.send('fpk=' + hash);
-}();
+    //FingerPrintでユーザー識別子ハッシュを作成してajaxでPHPに渡す
+    new Fingerprint2().get(function(result){
+        req.open('POST', '/wp-content/themes/plain-blog/accesscounter.php', true);
+        req.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=UTF-8');
+        req.send('fpk=' + result);
+    });
 
+}();
