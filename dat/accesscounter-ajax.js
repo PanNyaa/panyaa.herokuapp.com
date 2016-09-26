@@ -1,5 +1,8 @@
 !function(){
     const req = new XMLHttpRequest();
+    
+    
+    
     req.onreadystatechange = function() {
         const result = document.getElementById('accesscounter');
         if (req.readyState == 4) { // 通信の完了時
