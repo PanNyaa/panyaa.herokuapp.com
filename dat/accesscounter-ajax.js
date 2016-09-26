@@ -1,7 +1,7 @@
 !function(){
     const req = new XMLHttpRequest();
     
-    const hash = new Fingerprint2().get(function(result){return result;});
+    const hash = new Fingerprint2().get(function(result){console.log(result);return result;});
     
     req.onreadystatechange = function() {
         const result = document.getElementById('accesscounter');
