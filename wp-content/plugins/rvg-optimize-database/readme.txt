@@ -8,8 +8,8 @@ Author URI: http://cagewebdev.com
 Author: CAGE Web Design | Rolf van Gelder, Eindhoven, The Netherlands
 Requires at least: 2.8
 Tested up to: 4.6.1
-Stable tag: 4.2.0
-Version: 4.2.0
+Stable tag: 4.2.1
+Version: 4.2.1
 License: GPLv2 or later
 
 == Description ==
@@ -101,10 +101,12 @@ http://cagewebdev.com/index.php/wordpress-plugins/
 * If you run the plugin from any of the sites, it will cleanup ALL the sites in the network!
 
 == Changelog ==
+= 4.2.1 [09/23/2016] =
+* CHANGE: fixed some (innocent) warnings
+
 = 4.2.0 [09/16/2016] =
 * NEW: Added a 'monthly' schedule to the scheduler
 
-== Changelog ==
 = 4.1.10 [07/15/2016] =
 * BUG FIX: Bug fix for 4.1.9
 
