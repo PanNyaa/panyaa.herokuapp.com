@@ -43,7 +43,7 @@
     
     </div> <!--main_container end-->
     <?php wp_footer(); ?>
-    <link rel="stylesheet" href="/dat/vs.css"/><!-- syntax highlight -->
+    <link rel="stylesheet" href="/dat/vs.css"/><!-- syntax highlight Theme-->
     <link rel="stylesheet" href="/dat/ex-highlight.css"/><!-- syntax highlightでWebフォントを使用するためのスタイル -->
     <script src="/dat/highlight.pack.js"></script>
     <script>hljs.initHighlighting()</script>

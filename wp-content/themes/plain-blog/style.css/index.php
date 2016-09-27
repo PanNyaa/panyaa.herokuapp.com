@@ -67,18 +67,6 @@
 ?>
 
 /* ！！！スタイルシート完全に理解した！！！ */
-/*
-Theme Name: Plain Blog
-Author: NavThemes
-Author URI: http://www.navthemes.com
-Version: 1.6
-License: GNU General Public License
-License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
-Description: Plain Blog Theme is a minimal Blog theme From NavThemes.com. It can be used for any blog, simple yet elegant. Comes with and without sidebar page templates, it has inbuilt social sharing. It has four widget areas in footer, so you have flexibility to put anything in footer. Can be used for technology blog, travel blog, fitness blog, health blog, personal blog or any blogging purpose.
-Text Domain: plain-blog
-Theme URI: http://www.navthemes.com/plain-blog-theme
-Tags: white, red, threaded-comments, custom-menu
-*/
 
 /* edit by pan_nyaa */
 /* <font_c class="red">～～</p> で文字色を指定できるようにしたぞい！ */
@@ -1381,7 +1369,7 @@ pre {
     font-weight: 400;
     color: #232323;
     font-size: <?php echo FSize::pre;?>;
-    border: 3px dotted;
+    border: 2px dotted;
     border-color: #FFFFFF;
     background-color: #f5f5f5;
 }
