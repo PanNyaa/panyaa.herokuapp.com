@@ -76,14 +76,14 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROT
  */
  
 /* 認証用ユニークキー変更 2016/09/02 の夜 */
-define('AUTH_KEY',         'XK_GC|nV&]:W$/Q(OrT)CBvOfQXwseFg/8jS+a/3x-fGt9B{w*QpFeES)rEvP_]A');
-define('SECURE_AUTH_KEY',  'vAf5OWk1Ke#lbVJ[IYeiIrtcfe<+&l=,0>U+8E-p6pn1A{VF-Rd:O]lrYPe)x03_');
-define('LOGGED_IN_KEY',    'sxwW+{nB2WgzV-k%$|-OZp__X(BK<8Yb,%>-.jbu-V<#DeUE=B?Dj*gy~6rZN2_C');
-define('NONCE_KEY',        '9qP+?9Z3e6@c~*j9LYVUN,-?i [nPDnm`=S+Y:]~~,9u{<L22_`S.o+ *d+(uD4u');
-define('AUTH_SALT',        'hu2~tMLK1=(@izJ5]Mc -GvAxbd1pKMl!UCohWY/_;#/w[M6[#1+}sJKUev6C?#(');
-define('SECURE_AUTH_SALT', 'jR7AiWFaI+~GoX+Q17M@-p9-3DWML;, {u|k4Z@+;{pi3-o__0Fpg%F*PyL{Lw{`');
-define('LOGGED_IN_SALT',   '=Vp8-_vs)D* [:G}|_!{k!O<,!ns;xIWJ#+^?+9n@+v~~G3PPdkVH9NItn`@~if ');
-define('NONCE_SALT',       '9<ll~q3;jGy6g=U%F-y&o )ADDBQFlpToN&y_zVRo*lQ[C&Y`HG<s#04A:QgdgdN');
+define('AUTH_KEY',         getenv('WP_CONFIG_AUTH_KEY'));
+define('SECURE_AUTH_KEY',  getenv('WP_CONFIG_SECURE_AUTH_KEY'));
+define('LOGGED_IN_KEY',    getenv('WP_CONFIG_LOGGED_IN_KEY'));
+define('NONCE_KEY',        getenv('WP_CONFIG_NONCE_KEY'));
+define('AUTH_SALT',        getenv('WP_CONFIG_AUTH_SAL'));
+define('SECURE_AUTH_SALT', getenv('WP_CONFIG_SECURE_AUTH_SALT'));
+define('LOGGED_IN_SALT',   getenv('WP_CONFIG_LOGGED_IN_SALT'));
+define('NONCE_SALT',       getenv('WP_CONFIG_NONCE_SALT'));
 
 /**#@-*/
 

@@ -293,21 +293,20 @@ pre code {
     align-items: center;
 }
 #sns_bts {
-    vertical-align: top;
     z-index: 1000;
     position: fixed;
     border-radius: 30px;
     padding: 0.25em 1em;
     box-shadow: 0px 12px 10px -4px #FFF inset, 0px -6px 10px 4px #CCD inset;
-    text-align: center;
     left: 0.5em;
     bottom: 0.5em;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
 }
 #sns_bts_cs {
     padding: 0.5em;
-    display: inline-block;
-    vertical-align: inherit;
-    margin: 0em 0em -0.4em 0em;
+    display: inherit;
 }
 .tagcloud {
     position: relative;
