@@ -1076,7 +1076,7 @@ img {
         float: none !important;
     }
 }
-@media screen and (max-width: 959px) { 
+@media screen and (max-width: 950px) { 
     .header {
         text-align: center;
     }
