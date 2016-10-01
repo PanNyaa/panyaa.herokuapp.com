@@ -333,6 +333,25 @@ pre code {
     background: #FFF9D6 none repeat scroll 0% 0%;
     text-decoration: underline;
 }
+
+/* Bootstrapの上書き */
+@media (min-width: 960px)
+.col-md-12 {
+    width: 100%;
+}
+
+@media (min-width: 960px)
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+}
+
+@media (min-width: 960px)
+.container {
+    width: 960px;
+}
+
+
+
 /* 自分用スタイルここまで */
 /* Hyper text
 ------------------------------------------------- */
@@ -1651,6 +1670,9 @@ var {
 #navigation ul ul li.has-sub:hover > a::after {
     border-color: #ffffff;
 }
+
+
+
 @media all and (max-width: 768px),
 only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px),
 only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px),
