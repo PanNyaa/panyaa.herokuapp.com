@@ -1076,7 +1076,7 @@ img {
         float: none !important;
     }
 }
-@media screen and (max-width: 1023px) { /* 横幅が1023px */
+@media screen and (max-width: 959px) { 
     .header {
         text-align: center;
     }
