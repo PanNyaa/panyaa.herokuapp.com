@@ -22,6 +22,9 @@
         req.send('fpk=' + result);
     });
 
+    console.log("にゃう！？こんなところまで見ようとするとはJavaScript大好き勢だな！？JSはいいぞ！！！！！！！");
+    console.log("でもショタのほうが好きです……///");
+
 }();
 
 
