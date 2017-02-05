@@ -1,3 +1,47 @@
+<a href="https://px.a8.net/svt/ejp?a8mat=2NST2Y+2V00FM+2VMU+661TT" target="_blank">
+	<img border="0" width="110" height="60" alt="" src="/image-ex/NURO.jpg">
+</a>
+<img border="0" width="10" height="1" src="/image-ex/0.gif" alt="">
+<a href="https://px.a8.net/svt/ejp?a8mat=2NST33+DT4YWI+3KKM+60H7L" target="_blank">
+	<img border="0" width="100" height="60" alt="" src="/image-ex/softbank_12gb.gif">
+</a>
+<img border="0" width="1" height="1" src="/image-ex/0.gif" alt="">
+<a href="https://px.a8.net/svt/ejp?a8mat=2HLSO1+5JG8FM+0K+11I3E9" target="_blank">
+	<img border="0" width="300" height="250" alt="" src="/image-ex/biyou.jpg">
+</a>
+<img border="0" width="1" height="1" src="/image-ex/0.gif" alt="">
+<a href="https://px.a8.net/svt/ejp?a8mat=2NSTV0+LFMK2+40Q+2HALB6&a8ejpredirect=http%3A%2F%2Fwww.point-box.jp%2Fpb_camp.php%3Fpt%3D45" target="_blank">
+	<img border="0" width="256" height="80" alt="" src="/image-ex/poibo_1.jpg">
+</a>
+<img border="0" width="1" height="1" src="/image-ex/0.gif" alt="">
+<a href="https://px.a8.net/svt/ejp?a8mat=2NSTV7+FW5L4I+1VWG+5YZ75" target="_blank">
+	<img border="0" width="256" height="80" alt="" src="/image-ex/kobm.jpg">
+</a>
+<img border="0" width="1" height="1" src="/image-ex/0.gif" alt="">
+
+
+
+<a href="https://px.a8.net/svt/ejp?a8mat=2HLSO1+5JG8FM+0K+11J5Z5" target="_blank">
+<img border="0" width="300" height="250" alt="" src="https://www25.a8.net/svt/bgt?aid=150502753335&wid=001&eno=01&mid=s00000000002006304000&mc=1"></a>
+<img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=2HLSO1+5JG8FM+0K+11J5Z5" alt="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="accesscounter"><?php get_template_part("accsesscounter"); ?></div>
 <br>
 <div id="myprofile">
