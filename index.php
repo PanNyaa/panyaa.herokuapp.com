@@ -11,13 +11,7 @@
  *
  * @var bool
  */
- 
-/* herokuに置いたライブラリ群を、vendor/autoload.phpでここで読み込むことですべてのphp内で使えるようになるぞ！ */
-require "vendor/autoload.php";
-//use Controllers\MyController;
-
 define('WP_USE_THEMES', true);
 
 /** Loads the WordPress Environment and Template */
 require( dirname( __FILE__ ) . '/wp-blog-header.php' );
-

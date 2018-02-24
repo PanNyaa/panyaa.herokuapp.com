@@ -27,8 +27,19 @@
     if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
     wp_head();
     ?>
-    <!-- アナリティクスのインクルード --><?php include_once $_SERVER['DOCUMENT_ROOT'] . "/dat/analyticstracking.php" ?><!-- 成功してたらこの間に吐き出されてるはず -->
-    <!-- FingerPrintのインクルード --><?php include_once $_SERVER['DOCUMENT_ROOT'] . "/dat/fingerprint2.min.js.php" ?><!-- 成功してたらこの間に吐き出されてるはず -->
+    
+    <?php
+    /* herokuに置いたライブラリ群を、vendor/autoload.phpでここで読み込むことでだいたいすべて(超曖昧)のphp内で使えるようになるぞ！ */
+     require "vendor/autoload.php";
+    ?>
+    
+    <!-- アナリティクスのインクルード -->
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/dat/analyticstracking.php" ?>
+    <!-- 成功してたらこの間に吐き出されてるはず -->
+    
+    <!-- FingerPrintのインクルード -->
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/dat/fingerprint2.min.js.php" ?>
+    <!-- 成功してたらこの間に吐き出されてるはず -->
 
 
 </head>
