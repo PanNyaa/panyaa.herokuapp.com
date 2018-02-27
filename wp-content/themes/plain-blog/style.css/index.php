@@ -72,9 +72,10 @@
 
 /* highlightJSでBashを表示するときに黒背景に白文字にしてみるテスト */
 .bash.hljs {
-    background-color: #000;
+    background-color: #111;
     color: #FFF;
-    border-color: #777;
+    box-shadow: 1px 1px 2px #f5f5f566 inset, -1px -1px 1px #0000001a, -1px -1px 2px #f5f5f5 inset, 1px 1px 1px #f5f5f5 !important;
+    border: none;
 }
 
 /* <font_c class="red">～～</p> で文字色を指定できるようにしたぞい！ */
