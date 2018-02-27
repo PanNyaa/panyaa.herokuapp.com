@@ -69,6 +69,14 @@
 /* ！！！スタイルシート完全に理解した！！！ */
 
 /* edit by pan_nyaa */
+
+/* highlightJSでBashを表示するときに黒背景に白文字にしてみるテスト */
+.bash.hljs {
+    background-color: #000;
+    color: #FFF;
+    border-color: #777;
+}
+
 /* <font_c class="red">～～</p> で文字色を指定できるようにしたぞい！ */
 
 font_c.red {
