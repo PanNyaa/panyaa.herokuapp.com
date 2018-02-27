@@ -47,8 +47,9 @@
     require($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');  //Documentrootからvendorを読み込む…
     //namespace Controllers;
 
-    // \Dropbox を dbx としても記述できるように定義する
-    use \Dropbox as dbx;
+    // SDKで塚うっぽい固定名 を dbx dbxapp  としても記述できるように定義する
+    use Kunnu\Dropbox\Dropbox as dbx;
+    use Kunnu\Dropbox\DropboxApp as dbxapp;
 
     //自作関数を入れるので新しいクラスを dbx\Client から継承して作る、継承むずかしいです！！
     class PanyaaExtends extends dbx\Client
@@ -87,8 +88,9 @@
             return true;
         }
     }
-    //クラスを変数に定義、アクセストークンはここで指定します。getenv()でheroku上に設定した環境変数から読み込んでいます。第二引数は適当な文字列で良いっぽいです
-    $client = new PanyaaExtends(getenv('DROPBOX_ACCESS_TOKEN'),"panyaa");
+    //クラスを変数に定義、アクセストークンなどはここで指定します。getenv()でheroku上に設定した環境変数から読み込んでいます。
+    //("client_id", "client_secret", 'access_token');
+    $client = new PanyaaExtends(getenv('DROPBOX_APP_KEY'),getenv('DROPBOX_APP_SECRET'),getenv('DROPBOX_ACCESS_TOKEN'));
 
     $countdata = "0 0 0 0"; //仮データを入れておく
     $counts = [0];
