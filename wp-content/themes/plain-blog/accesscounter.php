@@ -52,7 +52,7 @@
     use Kunnu\Dropbox\DropboxApp as dbxapp;
 
     //自作関数を入れるので新しいクラスを dbx\Client から継承して作る、継承むずかしいです！！
-    class PanyaaExtends extends dbx\Client
+    class PanyaaExtends extends dbxapp\Client
     {
         //PanyaaExtendsをnewしたときに引数を書くとここに読み込まれる
         //引数にはAPI KEY、API SECRET KEY、アクセストークンを指定します
