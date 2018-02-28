@@ -52,13 +52,13 @@
     use Kunnu\Dropbox\DropboxApp as dbxapp;
 
     //自作関数を入れるので新しいクラスを dbx\DropboxApp から継承して作る、継承むずかしいです！！
-    class PanyaaExtends extends dbx\DropboxApp
+    class PanyaaExtends extends dbxapp
     {
         //PanyaaExtendsをnewしたときに引数を書くとここに読み込まれる
         //引数にはAPI KEY、API SECRET KEY、アクセストークンを指定します
         public function __construct($apikey,$apisec,$accessToken)
         {
-            //ひとつうえの親クラス(ここではClient)にそのまま引数を渡す
+            //ひとつうえの親クラス(ここではdbxapp)にそのまま引数を渡す
             parent::__construct($apikey,$apisec,$accessToken);
         }
 
