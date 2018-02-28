@@ -55,10 +55,11 @@
     class PanyaaExtends extends dbx\Client
     {
         //PanyaaExtendsをnewしたときに引数を書くとここに読み込まれる
-        //引数にはアクセストークンを指定します
-        public function __construct($accessToken,$AppName)
+        //引数にはAPI KEY、API SECRET KEY、アクセストークンを指定します
+        public function __construct($apikey,$apisec,$accessToken)
         {
-            parent::__construct($accessToken,$AppName);
+            //ひとつうえの親クラス(ここではClient)にそのまま引数を渡す
+            parent::__construct($apikey,$apisec,$accessToken);
         }
 
         //phpのテンポラリを利用してdropboxからデータを読み込んで返す関数
