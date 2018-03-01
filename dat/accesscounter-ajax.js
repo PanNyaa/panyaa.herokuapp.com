@@ -5,9 +5,10 @@
         const result = document.getElementById('accesscounter');
         if (req.readyState == 4) { // 通信の完了時
             if (req.status == 200) { // 通信の成功時
+                console.log("ajax通信成功！");
                 result.innerHTML = req.responseText;
             }else {
-                console.log("エラーが発生しました：");
+                console.log("ajaxエラーが発生しました：");
                 console.log(req.status);
             }
         }else{
