@@ -1,4 +1,4 @@
-：<?php
+<?php
 
 ini_set( 'display_errors', 1 );                     //エラーメッセージを表示する設定にする
 
