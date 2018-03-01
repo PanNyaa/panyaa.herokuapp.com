@@ -39,9 +39,6 @@
 
     ini_set( 'display_errors', 1 );                     //エラーメッセージを表示する設定にする
 
-    //自分用DropboxSDKラッパをサーバのルートからインクルード
-    //require($_SERVER['DOCUMENT_ROOT'].'/lib/my-autoload.php');
-
     //渡されたリクエスト値をある程度正当なものかどうか判別する
     if(strlen($_REQUEST['fpk']) != 32){
         echo "ajaxハッシュ値が不正です\n";
@@ -75,7 +72,7 @@
                                                         //  (アプリケーションフォルダ名)/app/wp-content/themes/plain-blog/data/a.dat が生成されます(/app/が間に挟まるのはherokuの特性です)
                                                         //絶対パスを指定すればそのままのパスでdropboxに作成されます
     $ipflag = true;
-    $repeatflag = true;
+    $norepeatflag = true;
 
     $countdata = $dropbox->getFileContents($path_countdata); //dropboxからファイル(これはアクセス数カウントデータ)を読み込んで文字列に返す
     $counts = explode(" ", $countdata);   //トータルアクセス数・今日のアクセス数・昨日のアクセス数・日付データを半角スペースで分解して格納
@@ -86,7 +83,7 @@
         $counts[1] = 0;                 //今日のカウント$count[1]を0に
         $fingerhashtable = explode(" ", $fingerhashdata); //仮データを半角スペースで分解して配列に格納(FingerHash)、昨日の分を上書き
     }else{
-        $fingerhashdata = $dropbox->getFileContents($path_fingerhashdata);   //FingerHashテーブルもDropboxから読み込み
+        $fingerhashdata = $dropbox->getFileContents($path_fingerhashdata);   //FingerHashテーブルをDropboxから読み込み
         $fingerhashtable = explode(" ", $fingerhashdata);                     //FingerHashのデータ群も同じく分解し配列に格納
     }
     
@@ -94,8 +91,8 @@
     $ipdata = $dropbox->getFileContents($path_ipdata);
     $iptable = explode(" ", $ipdata);
     
-    //今日の分のIPログに同じIPアドレスがあったらカウントしない
-    //(実際はIPアドレスを判別処理に使わずログを取ってるだけです)
+    //IPログに同じIPアドレスがあったらフラグを消す
+    //(IPアドレスを判別処理に使わずログを取ってるだけですが)
     foreach ($iptable as &$value) {
         if($value === $ip){
             $ipflag = false;
@@ -104,16 +101,17 @@
     }
     unset($value);
     
-    //今日の分のFingerHashログに同じハッシュがあったらカウントしない
+    //今日の分のFingerHashログに同じハッシュがあったら同一訪問者なのでカウントしない
     foreach ($fingerhashtable as &$value) {
         if($value === $fingerhash){
-            $repeatflag = false;
+            $norepeatflag = false;
             break;  //同じハッシュがあったのでハッシュテーブルチェックをbreakでやめる
         }
     }
     unset($value);
     
-    if($repeatflag){
+    //今日初めての訪問者だったらtrue
+    if($norepeatflag){
         
         $counts[0]++;   //トータルカウント+1
         $counts[1]++;   //今日のカウント+1
@@ -121,10 +119,10 @@
         array_unshift($fingerhashtable,$fingerhash);        //FingerHash値を配列の最初にプッシュする
 
         $countdata = join(" ", $counts);    //counts配列に含まれる数値群を文字列に変換して格納する、区切り文字は半角スペース
-        $fingerhashdata = join(" ", $fingerhashtable);       //これも同じく
+        $fingerhashdata = join(" ", $fingerhashtable);       //FingerHash配列もスペース区切りの文字列に変換して格納
 
-        $dropbox->uploadFileContents($path_countdata,$countdata,["mode" => "overwrite"]);    //文字列をファイルに書き込んでアップロード
-        $dropbox->uploadFileContents($path_fingerhashdata,$fingerhashdata,["mode" => "overwrite"]);          //これも同じく
+        $dropbox->uploadFileContents($path_countdata,$countdata,["mode" => "overwrite"]);    //カウンター文字列をファイルに書き込んでアップロード
+        $dropbox->uploadFileContents($path_fingerhashdata,$fingerhashdata,["mode" => "overwrite"]); //FingerHash値群もアップロード
     }
     
     echo "<div class=\"counter-ty\">あくせすかうんた<br><br></div>\n";

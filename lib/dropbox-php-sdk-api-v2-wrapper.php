@@ -46,7 +46,6 @@ class ExDropbox extends dbx {
     */
     public function uploadFileContents(...$arguments) 
     {
-
         //デフォルトパラメータをセット
         $parameters = array(null,null,["mode" => "add"],["autorename" => false],["mute" => false]);
 
@@ -56,7 +55,7 @@ class ExDropbox extends dbx {
         }
         unset($value);
 
-        if( !$parameters[0] || !$parameters[1]){
+        if( !$parameters[0] || !$parameters[1] ){
             echo "uploadFileContentsに指定したファイルパスか文字列がnullです\n";
             return false;
         }
