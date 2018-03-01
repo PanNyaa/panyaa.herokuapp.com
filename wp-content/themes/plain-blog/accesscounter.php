@@ -32,6 +32,11 @@
 
 <?php
 
+    /* herokuに置いたライブラリ群を読み込む*/
+    require($_SERVER['DOCUMENT_ROOT']."/vendor/autoload.php");
+    //自分用DropboxSDKラッパをサーバのルートからインクルード
+    require($_SERVER['DOCUMENT_ROOT']."/lib/my-autoload.php");
+
     ini_set( 'display_errors', 1 );                     //エラーメッセージを表示する設定にする
 
     //自分用DropboxSDKラッパをサーバのルートからインクルード
