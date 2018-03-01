@@ -29,8 +29,10 @@
     ?>
     
     <?php
-    /* herokuに置いたライブラリ群を、vendor/autoload.phpでここで読み込むことでだいたいすべて(超曖昧)のphp内で使えるようになるぞ！ */
-     require "vendor/autoload.php";
+        /* herokuに置いたライブラリ群を、vendor/autoload.phpでここで読み込むことでだいたいすべて(超曖昧)のphp内で使えるようになるぞ！ */
+        require $_SERVER['DOCUMENT_ROOT']."/vendor/autoload.php";
+        //自分用DropboxSDKラッパをサーバのルートからインクルード
+        require($_SERVER['DOCUMENT_ROOT'].'/lib/my-autoload.php');
     ?>
     
     <!-- アナリティクスのインクルード -->

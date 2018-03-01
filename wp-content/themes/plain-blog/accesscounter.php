@@ -34,8 +34,8 @@
 
     ini_set( 'display_errors', 1 );                     //エラーメッセージを表示する設定にする
 
-    //自分用DropboxSDKラッパをインクルード
-    require('lib/my-autoload.php');
+    //自分用DropboxSDKラッパをサーバのルートからインクルード
+    //require($_SERVER['DOCUMENT_ROOT'].'/lib/my-autoload.php');
 
     //渡されたリクエスト値をある程度正当なものかどうか判別する
     if(strlen($_REQUEST['fpk']) != 32){
