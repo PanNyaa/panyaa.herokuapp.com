@@ -37,7 +37,8 @@
 
     //渡されたリクエスト値をある程度正当なものかどうか判別する
     if(strlen($_REQUEST['fpk']) != 32){
-        return echo "ハッシュ値が不正です\n"; //ハッシュ値は32バイトなのでそれ以外の場合は不正な値とみなし処理を終了
+        echo "ajaxハッシュ値が不正です\n";
+        return -1; //ハッシュ値は32バイトなのでそれ以外の場合は不正な値とみなし処理を終了
     }
 
     error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED);   //Deprecated 抑制
