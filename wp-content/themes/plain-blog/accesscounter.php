@@ -1,5 +1,3 @@
-
-
 <style type"text/css">
 
 /* Webフォントの読み込み */
@@ -34,6 +32,9 @@
 
 <?php
 
+    //自分用DropboxSDKラッパをインクルード
+    require_once('/lib/dropbox-php-sdk-api-v2-wrapper.php');
+
     //渡されたリクエスト値をある程度正当なものかどうか判別する
     if(strlen($_REQUEST['fpk']) != 32)return -1; //ハッシュ値は32バイトなのでそれ以外の場合は不正な値とみなし処理を終了
 
@@ -41,57 +42,10 @@
     date_default_timezone_set('Asia/Tokyo');            //タイムゾーンを日本に設定しま～～～す
     ini_set( 'display_errors', 1 );                     //エラーメッセージを表示する設定にする
 
-    //手動で配置したdropbox-sdkを読み込む。ファイルパスはphpの場所に応じて適宜書き換えてください。
-    //require_once dirname(__FILE__)."/../../../lib/Dropbox/autoload.php";
-    //require_once('/app/vendor/autoload.php'); //heroku上にdropbox-sdkがインストールできたのでどこからでもお手軽インクルード
-    require($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');  //Documentrootからvendorを読み込む…
-    //namespace Controllers;
 
-    // SDKで塚うっぽい固定名 を dbx dbxapp  としても記述できるように定義する
-    use Kunnu\Dropbox\Dropbox as dbx;
-    use Kunnu\Dropbox\DropboxApp as dbxapp;
-
-    //自作関数を入れるので新しいクラスを dbx\DropboxApp から継承して作る、継承むずかしいです！！
-    class PanyaaExtends extends dbxapp
-    {
-        //PanyaaExtendsをnewしたときに引数を書くとここに読み込まれる
-        //引数にはAPI KEY、API SECRET KEY、アクセストークンを指定します
-        public function __construct($apikey,$apisec,$accessToken)
-        {
-            //ひとつうえの親クラス(ここではdbxapp)にそのまま引数を渡す
-            parent::__construct($apikey,$apisec,$accessToken);
-        }
-
-        //phpのテンポラリを利用してdropboxからデータを読み込んで返す関数
-        //たぶん $client->getFileContents("/data/a.dat") とかいう風にやれば読み込んだ文字列を返してくれる？
-        //もうちょっと綺麗な場所に書きたいぞい……（ぼやき
-        public function getFileContents($filename)
-        {
-            $stream = fopen('php://memory', 'w+');
-            $this->getFile($filename, $stream);
-            rewind($stream);
-            $fileContents = stream_get_contents($stream);
-            fclose($stream);
-            return $fileContents;
-        }
-
-        //phpの○ンポラリに文字列を書き込んでファイルとしてアップロードしちゃう関数
-        //ファイルパスと文字列を渡すだけでその名前でその内容のファイルがDropBoxに生成されます
-        // dbx\WriteMode::force() を指定しているので、ファイルは上書き保存されます
-        public function uploadFileContents($filename,$str)
-        {
-            $stream = fopen('php://memory', 'w+b');//bオプションをつけないとアップロードしても0byteのファイルになっちゃう？のでbオプション必須
-            rewind($stream);
-            fputs($stream, $str);
-            rewind($stream);    //めっちゃrewindしてるけどこうしないと正しい内容がアップロードされない
-            $this->uploadFile($filename, dbx\WriteMode::force(), $stream);
-            fclose($stream);
-            return true;
-        }
-    }
-    //クラスを変数に定義、アクセストークンなどはここで指定します。getenv()でheroku上に設定した環境変数から読み込んでいます。
-    //("client_id", "client_secret", 'access_token');
-    $client = new PanyaaExtends(getenv('DROPBOX_APP_KEY'),getenv('DROPBOX_APP_SECRET'),getenv('DROPBOX_ACCESS_TOKEN'));
+    //クラスでインスタンスを作る。アクセストークンなどはここで指定します。getenv()でheroku上に設定した環境変数から読み込んでいます。
+    $client = new ExDropboxApp(getenv('DROPBOX_APP_KEY'),getenv('DROPBOX_APP_SECRET'),getenv('DROPBOX_ACCESS_TOKEN'));
+    $dropbox = new ExDropbox($client);
 
     $countdata = "0 0 0 0"; //仮データを入れておく
     $counts = [0];
@@ -114,7 +68,7 @@
     $ipflag = true;
     $repeatflag = true;
 
-    $countdata = $client->getFileContents($path_countdata); //dropboxからファイル(これはアクセス数カウントデータ)を読み込んで文字列に返す
+    $countdata = $dropbox->getFileContents($path_countdata); //dropboxからファイル(これはアクセス数カウントデータ)を読み込んで文字列に返す
     $counts = split(" ", $countdata);   //トータルアクセス数・今日のアクセス数・昨日のアクセス数・日付データを半角スペースで分解して格納
 
     if(date("j") != $counts[3]) {       //日付確認（日付が変わった場合）
@@ -123,12 +77,12 @@
         $counts[1] = 0;                 //今日のカウント$count[1]を0に
         $fingerhashtable = split(" ", $fingerhashdata); //仮データを半角スペースで分解して配列に格納(FingerHash)、昨日の分を上書き
     }else{
-        $fingerhashdata = $client->getFileContents($path_fingerhashdata);   //FingerHashテーブルもDropboxから読み込み
+        $fingerhashdata = $dropbox->getFileContents($path_fingerhashdata);   //FingerHashテーブルもDropboxから読み込み
         $fingerhashtable = split(" ", $fingerhashdata);                     //FingerHashのデータ群も同じく分解し配列に格納
     }
     
     //IPログはずっと消さずにログをとっておきます
-    $ipdata = $client->getFileContents($path_ipdata);
+    $ipdata = $dropbox->getFileContents($path_ipdata);
     $iptable = split(" ", $ipdata);
     
     //今日の分のIPログに同じIPアドレスがあったらカウントしない
@@ -160,8 +114,8 @@
         $countdata = join(" ", $counts);    //counts配列に含まれる数値群を文字列に変換して格納する、区切り文字は半角スペース
         $fingerhashdata = join(" ", $fingerhashtable);       //これも同じく
 
-        $client->uploadFileContents($path_countdata,$countdata);    //文字列をファイルに書き込んでアップロード
-        $client->uploadFileContents($path_fingerhashdata,$fingerhashdata);          //これも同じく
+        $dropbox->uploadFileContents($path_countdata,$countdata,["mode" => "overwrite"]);    //文字列をファイルに書き込んでアップロード
+        $dropbox->uploadFileContents($path_fingerhashdata,$fingerhashdata,["mode" => "overwrite"]);          //これも同じく
     }
     
     echo "<div class=\"counter-ty\">あくせすかうんた<br><br></div>\n";
@@ -171,7 +125,7 @@
     if($ipflag){
         array_unshift($iptable,$ip);        //アクセス元IPアドレスを配列の最初にプッシュする
         $ipdata = join(" ",$iptable);
-        $client->uploadFileContents($path_ipdata,$ipdata);
+        $dropbox->uploadFileContents($path_ipdata,$ipdata,["mode" => "overwrite"]);
     }
     
 ?>
