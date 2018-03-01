@@ -72,21 +72,21 @@
     $repeatflag = true;
 
     $countdata = $dropbox->getFileContents($path_countdata); //dropboxからファイル(これはアクセス数カウントデータ)を読み込んで文字列に返す
-    $counts = split(" ", $countdata);   //トータルアクセス数・今日のアクセス数・昨日のアクセス数・日付データを半角スペースで分解して格納
+    $counts = explode(" ", $countdata);   //トータルアクセス数・今日のアクセス数・昨日のアクセス数・日付データを半角スペースで分解して格納
 
     if(date("j") != $counts[3]) {       //日付確認（日付が変わった場合）
         $counts[3] = date("j");         //日付$count[3]を今日の日付に
         $counts[2] = $counts[1];        //昨日のカウント$count[2]を$count[1]に
         $counts[1] = 0;                 //今日のカウント$count[1]を0に
-        $fingerhashtable = split(" ", $fingerhashdata); //仮データを半角スペースで分解して配列に格納(FingerHash)、昨日の分を上書き
+        $fingerhashtable = explode(" ", $fingerhashdata); //仮データを半角スペースで分解して配列に格納(FingerHash)、昨日の分を上書き
     }else{
         $fingerhashdata = $dropbox->getFileContents($path_fingerhashdata);   //FingerHashテーブルもDropboxから読み込み
-        $fingerhashtable = split(" ", $fingerhashdata);                     //FingerHashのデータ群も同じく分解し配列に格納
+        $fingerhashtable = explode(" ", $fingerhashdata);                     //FingerHashのデータ群も同じく分解し配列に格納
     }
     
     //IPログはずっと消さずにログをとっておきます
     $ipdata = $dropbox->getFileContents($path_ipdata);
-    $iptable = split(" ", $ipdata);
+    $iptable = explode(" ", $ipdata);
     
     //今日の分のIPログに同じIPアドレスがあったらカウントしない
     //(実際はIPアドレスを判別処理に使わずログを取ってるだけです)
