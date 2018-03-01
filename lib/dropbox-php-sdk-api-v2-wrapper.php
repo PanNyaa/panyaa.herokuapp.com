@@ -1,9 +1,11 @@
 ：<?php
 
+ini_set( 'display_errors', 1 );                     //エラーメッセージを表示する設定にする
+
 /**https://github.com/kunalvarma05/dropbox-php-sdk/wiki/Configuration */
 /**上記SDKに自作関数を組み込んだりする為のラッパーです */
 
-require('vendor/autoload.php');
+//require('vendor/autoload.php');
 
 /** メインっぽいやつだけ as 以降の名前で使えるように */
 use Kunnu\Dropbox\Dropbox as dbx;
