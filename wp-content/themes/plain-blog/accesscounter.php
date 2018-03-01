@@ -36,7 +36,9 @@
     require_once('./lib/my-autoload.php');
 
     //渡されたリクエスト値をある程度正当なものかどうか判別する
-    if(strlen($_REQUEST['fpk']) != 32)return -1; //ハッシュ値は32バイトなのでそれ以外の場合は不正な値とみなし処理を終了
+    if(strlen($_REQUEST['fpk']) != 32){
+        return echo "ハッシュ値が不正です\n"; //ハッシュ値は32バイトなのでそれ以外の場合は不正な値とみなし処理を終了
+    }
 
     error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED);   //Deprecated 抑制
     date_default_timezone_set('Asia/Tokyo');            //タイムゾーンを日本に設定しま～～～す
