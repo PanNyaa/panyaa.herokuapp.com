@@ -33,7 +33,7 @@
 <?php
 
     //自分用DropboxSDKラッパをインクルード
-    require_once('lib/my-autoload.php');
+    require('lib/my-autoload.php');
 
     //渡されたリクエスト値をある程度正当なものかどうか判別する
     if(strlen($_REQUEST['fpk']) != 32){
