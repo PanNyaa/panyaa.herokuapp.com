@@ -32,6 +32,8 @@
 
 <?php
 
+    ini_set( 'display_errors', 1 );                     //エラーメッセージを表示する設定にする
+
     //自分用DropboxSDKラッパをインクルード
     require('lib/my-autoload.php');
 
@@ -43,7 +45,6 @@
 
     error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED);   //Deprecated 抑制
     date_default_timezone_set('Asia/Tokyo');            //タイムゾーンを日本に設定しま～～～す
-    ini_set( 'display_errors', 1 );                     //エラーメッセージを表示する設定にする
 
 
     //クラスでインスタンスを作る。アクセストークンなどはここで指定します。getenv()でheroku上に設定した環境変数から読み込んでいます。
