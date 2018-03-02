@@ -32,6 +32,11 @@ class ExDropbox extends dbx {
         return $this->download($filename)->getContents();
     }
 
+    //getFileContentsのgzip版、gzipファイルをデコードした内容を返す
+    public function getGzipContents($filename)
+    {
+        return gzdecode($this->download($filename)->getContents());
+    }
 
     /**phpのテンポラリに文字列を書き込んでファイルとしてアップロードしちゃう関数
      * 第一引数：Dropboxへのファイルパス
@@ -74,6 +79,29 @@ class ExDropbox extends dbx {
         $this->upload($dropboxFile,$parameters[0],$parameters[2],$parameters[3],$parameters[4])->getName();
 
         fclose($ramStream);
+        return true;
+    }
+
+    //uploadFileContentsのgzバージョン
+    public function uploadGzipContents(...$arguments){
+        //デフォルトパラメータをセット
+        $parameters = array(null,null,["mode" => "add"],["autorename" => false],["mute" => false]);
+
+        //デフォルトパラメータを渡された引数で上書き
+        foreach ($arguments as $key => $value) {
+            $parameters[$key] = $value;
+        }
+        unset($value);
+
+        if( !$parameters[0] || !$parameters[1] ){
+            echo "uploadGzipContentsに指定したファイルパスか文字列がnullです\n";
+            return false;
+        }
+
+        $parameters[1] = gzencode($parameters[1]);
+
+        $this->uploadFileContents($parameters[0],$parameters[1],$parameters[2],$parameters[3],$parameters[4]);
+
         return true;
     }
 

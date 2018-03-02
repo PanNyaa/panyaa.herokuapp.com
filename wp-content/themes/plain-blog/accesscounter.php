@@ -32,12 +32,12 @@
 
 <?php
 
+    ini_set( 'display_errors', 1 ); //エラーメッセージを表示する設定にする
+
     /* herokuに置いたライブラリ群を読み込む*/
     require($_SERVER['DOCUMENT_ROOT']."/vendor/autoload.php");
     //自分用DropboxSDKラッパをサーバのルートからインクルード
     require($_SERVER['DOCUMENT_ROOT']."/lib/my-autoload.php");
-
-    ini_set( 'display_errors', 1 );                     //エラーメッセージを表示する設定にする
 
     //渡されたリクエスト値をある程度正当なものかどうか判別する
     if(strlen($_REQUEST['fpk']) != 32){
@@ -63,48 +63,64 @@
     $fingerhash = $_REQUEST['fpk']; //ajaxで渡されたFingerPrintのハッシュデータを取得
     $fingerhashdata = "0000000000000000 0000000000000000";  //仮データを入れておく
     $fingerhashtable = [0];
+    $fingerhashlog = "hoge piyo";
+    $fingerhashlogtable = [0];
 
-    $path_countdata = "/data/countdata.txt";            //ファイルパスなので適宜いじってください
-    $path_ipdata = "/data/ipdata.txt";                  //※ファイルパスの先頭には / もしくは ./ が必須なようです(無い場合はsdk側でエラーが出る)
-    $path_fingerhashdata = "/data/fingerhashdata.txt";   //例えば /data/a.dat と指定した場合、アプリケーション指定したフォルダの直下にdata/a.datが生成されます
-                                                        //例えば ./data/a.dat と指定した場合、このphpを実行しているフォルダの場所の構成がそのままアプリケーション指定したフォルダの直下に生成されます
+    $path_countdata = "/data/countdata.gz";             //ファイルパスなので適宜いじってください
+    $path_ipdata = "/data/ipdata.gz";                   //※ファイルパスの先頭には / もしくは ./ が必須なようです(無い場合はsdk側でエラーが出る)
+    $path_fingerhashdata = "/data/fingerhashdata.gz";   //例えば /data/a.dat と指定した場合、アプリケーション指定したフォルダの直下にdata/a.datが生成されます
+    $path_fingerhashlog = "/data/fingerhashlog.gz";     //例えば ./data/a.dat と指定した場合、このphpを実行しているフォルダの場所の構成がそのままアプリケーション指定したフォルダの直下に生成されます
                                                         //例えばheroku上で /wp-content/themes/plain-blog/accsesscounter.php で実行している場合、./data/a.dat と指定すると、
                                                         //  (アプリケーションフォルダ名)/app/wp-content/themes/plain-blog/data/a.dat が生成されます(/app/が間に挟まるのはherokuの特性です)
                                                         //絶対パスを指定すればそのままのパスでdropboxに作成されます
     $ipflag = true;
     $norepeatflag = true;
+    $hashlogflag = true;
 
-    $countdata = $dropbox->getFileContents($path_countdata); //dropboxからファイル(これはアクセス数カウントデータ)を読み込んで文字列に返す
-    $counts = explode(" ", $countdata);   //トータルアクセス数・今日のアクセス数・昨日のアクセス数・日付データを半角スペースで分解して格納
 
+
+    //Dropboxからファイルを読み込んでバイナリ内容を文字列として変数に渡す
+    $ipdata = $dropbox->getGzipContents($path_ipdata);
+    $countdata = $dropbox->getGzipContents($path_countdata);
+    $fingerhashlog = $dropbox->getGzipContents($path_fingerhashlog);
+
+    //explodeで半角スペース区切りで分解して配列に格納
+    $iptable = explode(" ", $ipdata);   //IPアドレス群
+    $counts = explode(" ", $countdata); //トータルアクセス数・今日のアクセス数・昨日のアクセス数・日付データ
+    $fingerhashlogtable = explode(" ", $fingerhashlog); //Fingerhash累積データログ
+    
     if(date("j") != $counts[3]) {       //日付確認（日付が変わった場合）
         $counts[3] = date("j");         //日付$count[3]を今日の日付に
         $counts[2] = $counts[1];        //昨日のカウント$count[2]を$count[1]に
         $counts[1] = 0;                 //今日のカウント$count[1]を0に
-        $fingerhashtable = explode(" ", $fingerhashdata); //仮データを半角スペースで分解して配列に格納(FingerHash)、昨日の分を上書き
+        $fingerhashtable = explode(" ", $fingerhashdata); //仮データを半角スペースで分解して配列に格納(FingerHash)、仮データで昨日の分を上書き
     }else{
-        $fingerhashdata = $dropbox->getFileContents($path_fingerhashdata);   //FingerHashテーブルをDropboxから読み込み
-        $fingerhashtable = explode(" ", $fingerhashdata);                     //FingerHashのデータ群も同じく分解し配列に格納
+        $fingerhashdata = $dropbox->getGzipContents($path_fingerhashdata);  //FingerHashテーブルをDropboxから読み込み
+        $fingerhashtable = explode(" ", $fingerhashdata);                   //FingerHashのデータ群も同じく分解し配列に格納
     }
     
-    //IPログはずっと消さずにログをとっておきます
-    $ipdata = $dropbox->getFileContents($path_ipdata);
-    $iptable = explode(" ", $ipdata);
-    
-    //IPログに同じIPアドレスがあったらフラグを消す
-    //(IPアドレスを判別処理に使わずログを取ってるだけですが)
-    foreach ($iptable as &$value) {
+    //今日の分のFingerHashログに同じハッシュがあったら同一訪問者なのでカウントしない
+    foreach ($fingerhashtable as $value) {
+        if($value === $fingerhash){
+            $norepeatflag = false;
+            break;  //同じハッシュがあったのでハッシュテーブルチェックをbreakでやめる
+        }
+    }
+    unset($value);
+
+    //IPログに同じIPアドレスがあったらIPアドレス記録フラグを消す
+    foreach ($iptable as $value) {
         if($value === $ip){
             $ipflag = false;
             break;
         }
     }
     unset($value);
-    
-    //今日の分のFingerHashログに同じハッシュがあったら同一訪問者なのでカウントしない
-    foreach ($fingerhashtable as &$value) {
+
+    //累積したFingerhashログと同じハッシュがあったらログ記録フラグを消す
+    foreach ($fingerhashlogtable as $value) {
         if($value === $fingerhash){
-            $norepeatflag = false;
+            $hashlogflag = false;
             break;  //同じハッシュがあったのでハッシュテーブルチェックをbreakでやめる
         }
     }
@@ -113,27 +129,43 @@
     //今日初めての訪問者だったらtrue
     if($norepeatflag){
         
-        $counts[0]++;   //トータルカウント+1
-        $counts[1]++;   //今日のカウント+1
+        //トータルカウントと今日のカウントを1増やす
+        $counts[0]++;
+        $counts[1]++;
         
-        array_unshift($fingerhashtable,$fingerhash);        //FingerHash値を配列の最初にプッシュする
+        //FingerHash値を配列の最初にプッシュする
+        array_unshift($fingerhashtable,$fingerhash);
 
-        $countdata = join(" ", $counts);    //counts配列に含まれる数値群を文字列に変換して格納する、区切り文字は半角スペース
-        $fingerhashdata = join(" ", $fingerhashtable);       //FingerHash配列もスペース区切りの文字列に変換して格納
+        //配列に含まれるデータ群をテキストに変換して変数に格納、区切り文字は半角スペース
+        $countdata = implode(" ", $counts);
+        $fingerhashdata = implode(" ", $fingerhashtable);
 
-        $dropbox->uploadFileContents($path_countdata,$countdata,["mode" => "overwrite"]);    //カウンター文字列をファイルに書き込んでアップロード
-        $dropbox->uploadFileContents($path_fingerhashdata,$fingerhashdata,["mode" => "overwrite"]); //FingerHash値群もアップロード
+
+        //Dropboxにファイルとしてアップロード、上書き保存する
+        $dropbox->uploadGzipContents($path_countdata,$countdata,["mode" => "overwrite"]);   //カウントデータ群
+        $dropbox->uploadGzipContents($path_fingerhashdata,$fingerhashdata,["mode" => "overwrite"]); //FingerHash値群
+
+    }
+
+    //IPアドレスを記録
+    if($ipflag){
+        array_unshift($iptable,$ip);        //アクセス元IPアドレスを配列の最初にプッシュする
+        $ipdata = implode(" ",$iptable);
+        $dropbox->uploadGzipContents($path_ipdata,$ipdata,["mode" => "overwrite"]);
+    }
+
+    //Fingerhashの累積データを記録
+    if($hashlogflag){
+        array_unshift($fingerhashlogtable,$fingerhash);
+        $fingerhashlog = implode(" ",$fingerhashlogtable);
+        $dropbox->uploadGzipContents($path_fingerhashlog,$fingerhashlog,["mode" => "overwrite"]);
     }
     
     echo "<div class=\"counter-ty\">あくせすかうんた<br><br></div>\n";
     echo "<div class=\"counter-num\">",sprintf("%06d", $counts[0]),"</div>";
     echo "<div class=\"counter-ty\"><br>今日：", $counts[1], "　昨日：", $counts[2], "</div>\n";
-    
-    if($ipflag){
-        array_unshift($iptable,$ip);        //アクセス元IPアドレスを配列の最初にプッシュする
-        $ipdata = join(" ",$iptable);
-        $dropbox->uploadFileContents($path_ipdata,$ipdata,["mode" => "overwrite"]);
-    }
+
+
     
 ?>
 
