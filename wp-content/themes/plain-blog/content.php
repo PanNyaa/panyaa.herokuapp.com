@@ -44,7 +44,7 @@ if(!is_page()) {
 				} else {
                                         get_template_part('sns_bts'); //にゃー
 					
-					the_content();
+					echo get_the_content();
 				} ?>
             </div>
             
