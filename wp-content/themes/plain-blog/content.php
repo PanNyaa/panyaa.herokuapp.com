@@ -42,9 +42,19 @@ if(!is_page()) {
                <?php if ( is_category() || is_archive() ) {
 					the_excerpt();
 				} else {
-                                        get_template_part('sns_bts'); //にゃー
-					
-					echo get_the_content();
+                    get_template_part('sns_bts'); //にゃー
+                    
+                    /////////////////////////////////////////
+                    $content_main = get_the_content( $more_link_text, $strip_teaser );
+	                $content_main = apply_filters( 'the_content', $content_main );
+                    $content_main = str_replace( ']]>', ']]&gt;', $content_main );
+
+                    //$pointer = strpos($content_main,"<pre><code");
+                    
+	                echo $content_main;
+                    /////////////////////////////////////////
+
+
 				} ?>
             </div>
             
