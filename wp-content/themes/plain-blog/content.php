@@ -1,20 +1,4 @@
 <?php
-
-
-class MyLib{
-
-    public function sanitize_in_precode($str){
-
-        $p1 = strpos($str,"<pre><code");
-
-        
-
-    }
-
-}
-?>
-
-<?php
 /**
  * This file is responsible for the post's rendering on the pages.
  */

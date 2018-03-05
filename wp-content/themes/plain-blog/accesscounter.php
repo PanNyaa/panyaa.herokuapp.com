@@ -45,16 +45,12 @@
         return -1; //ハッシュ値は32バイトなのでそれ以外の場合は不正な値とみなし処理を終了
     }
 
-    error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED);   //Deprecated 抑制
     date_default_timezone_set('Asia/Tokyo');            //タイムゾーンを日本に設定しま～～～す
-
-
-    //クラスでインスタンスを作る。アクセストークンなどはここで指定します。getenv()でheroku上に設定した環境変数から読み込んでいます。
-    $client = new ExDropboxApp(getenv('DROPBOX_APP_KEY'),getenv('DROPBOX_APP_SECRET'),getenv('DROPBOX_ACCESS_TOKEN'));
-    $dropbox = new ExDropbox($client);
 
     $countdata = "0 0 0 0"; //仮データを入れておく
     $counts = [0];
+    $countlogdata = "1900/01/01,0,0\n"; //仮データ
+    $countlogtable = [0];
 
     $ip = $_SERVER['REMOTE_ADDR'];  //アクセス元のIPアドレスを取得
     $ipdata = "0.0.0.0 0.0.0.0";   //仮データを入れておく
@@ -66,6 +62,7 @@
     $fingerhashlog = "hoge piyo";
     $fingerhashlogtable = [0];
 
+    $path_countlog = "/data/countlog.gz";
     $path_countdata = "/data/countdata.gz";             //ファイルパスなので適宜いじってください
     $path_ipdata = "/data/ipdata.gz";                   //※ファイルパスの先頭には / もしくは ./ が必須なようです(無い場合はsdk側でエラーが出る)
     $path_fingerhashdata = "/data/fingerhashdata.gz";   //例えば /data/a.dat と指定した場合、アプリケーション指定したフォルダの直下にdata/a.datが生成されます
@@ -77,19 +74,36 @@
     $norepeatflag = true;
     $hashlogflag = true;
 
+    //日付更新デバッグ用(他の人は触っちゃダメ！＞＜)
+    if($_REQUEST['fpk'] === "0123456789ABCDEFGHIJKLMNOPQRSTUV"){
+        $Debug = 1;
+    }else{
+        $Debug = 0;
+    }
 
+    //クラスでインスタンスを作る。アクセストークンなどはここで指定します。getenv()でheroku上に設定した環境変数から読み込んでいます。
+    $client = new ExDropboxApp(getenv('DROPBOX_APP_KEY'),getenv('DROPBOX_APP_SECRET'),getenv('DROPBOX_ACCESS_TOKEN'));
+    $dropbox = new ExDropbox($client);
 
     //Dropboxからファイルを読み込んでバイナリ内容を文字列として変数に渡す
     $ipdata = $dropbox->getGzipContents($path_ipdata);
     $countdata = $dropbox->getGzipContents($path_countdata);
     $fingerhashlog = $dropbox->getGzipContents($path_fingerhashlog);
+    $countlog = $dropbox->getGzipContents($path_countlog);
 
-    //explodeで半角スペース区切りで分解して配列に格納
+    //explodeで区切り分解して配列に格納
     $iptable = explode(" ", $ipdata);   //IPアドレス群
     $counts = explode(" ", $countdata); //トータルアクセス数・今日のアクセス数・昨日のアクセス数・日付データ
     $fingerhashlogtable = explode(" ", $fingerhashlog); //Fingerhash累積データログ
+    $countlogtable = explode("\n", $countlog); //年月日別アクセス数ログ
     
-    if(date("j") != $counts[3]) {       //日付確認（日付が変わった場合）
+    if(date("j") != $counts[3] || $Debug) {       //日付確認（日付が変わった場合）
+        // 2000/01/01,100,100000\n のようなデータを作成して配列の後ろに追加(年月日,今日のアクセス数,トータルアクセス数)
+        $countlogtable[] = date("Y/m/d").",".$counts[1].",".$counts[0];
+        $countlogdata = implode("\n",$countlogtable);   //データ群は改行で区切る
+        $dropbox->uploadGzipContents($path_countlog,$countlogdata,["mode" => "overwrite"]);   //年月日別アクセス数ログをアップロード
+
+        //今日のアクセス数カウント更新
         $counts[3] = date("j");         //日付$count[3]を今日の日付に
         $counts[2] = $counts[1];        //昨日のカウント$count[2]を$count[1]に
         $counts[1] = 0;                 //今日のカウント$count[1]を0に
