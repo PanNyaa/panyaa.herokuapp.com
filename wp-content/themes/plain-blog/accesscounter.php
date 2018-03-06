@@ -98,8 +98,8 @@
     $countlogtable = explode("\n", $countlog); //年月日別アクセス数ログ
     
     if(date("j") != $counts[3] || $Debug) {       //日付確認（日付が変わった場合）
-        // 2000/01/01,100,100000\n のようなデータを作成して配列の後ろに追加(年月日,今日のアクセス数,トータルアクセス数)
-        $countlogtable[] = date("Y/m/d").",".$counts[1].",".$counts[0];
+        // 2000/01/01,100,100000\n のようなデータを作成して配列の後ろに追加(昨日の年月日,今日のアクセス数,トータルアクセス数)
+        $countlogtable[] = date("Y/m/d",strtotime('-1 day')).",".$counts[1].",".$counts[0];
         $countlogdata = implode("\n",$countlogtable);   //データ群は改行で区切る
         $dropbox->uploadGzipContents($path_countlog,$countlogdata,["mode" => "overwrite"]);   //年月日別アクセス数ログをアップロード
 
