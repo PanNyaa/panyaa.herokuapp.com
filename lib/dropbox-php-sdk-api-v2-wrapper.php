@@ -82,7 +82,7 @@ class ExDropbox extends dbx {
         return true;
     }
 
-    //uploadFileContentsのgzバージョン
+    //uploadFileContentsのgzとしてアップロードするバージョン
     public function uploadGzipContents(...$arguments){
         //デフォルトパラメータをセット
         $parameters = array(null,null,["mode" => "add"],["autorename" => false],["mute" => false]);
