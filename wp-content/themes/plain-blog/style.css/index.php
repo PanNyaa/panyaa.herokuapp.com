@@ -94,7 +94,7 @@ font_c.blue {
 /* タグクラウドの押しピン記号 */
 
 .tagcloud a::before {
-    color: rgba(255, 54, 0, 0.01);  //ほぼ完全透明にすることで疑似的に消す
+    color: rgba(255, 54, 0, 0.01); /*ほぼ完全透明にすることで疑似的に消す*/
     content: "📌";
     margin: 0em 0.27em 0em -1.0em;
     font-size: 0.7em;
@@ -119,14 +119,14 @@ img {
 }
 /* ヘッダーのCSSはだいたいTwitterWebのスタイルを参考にしました */
 
-#title_img {
+.title_img {
     outline: none;
     display: inherit;
     text-align: center;
     position: absolute;
     width: 95%;
 }
-#h_menu {
+.h_menu {
     height: 40px;
     /*outline: medium none;*/
     /*font-size: 3em;*/
@@ -137,7 +137,7 @@ img {
     margin: 0em 0em 0em 0.2em;
     background-color: rgba(255, 255, 255, 0.01);
 }
-#h_menu:hover {
+.h_menu:hover {
     width: 240px;
     height: 100px;
     opacity: 0.333;
@@ -147,11 +147,11 @@ img {
     -webkit-transition: all 0.5s ease;
     background-color: rgba(0, 0, 0, 0.5);
 }
-#h_menu_item {
+.h_menu_item {
     outline: medium none;
     text-align: center;
 }
-#headerbar_fix {
+.headerbar_fix {
     /*top: 0px;*/
     /* WordPressログイン中に表示されるヘッダーに被るので無効 */
     
@@ -165,7 +165,7 @@ img {
     background: rgba(255, 255, 255, 0.66) none repeat scroll 0% 0%;
     border-bottom: 3px dotted rgba(0, 128, 255, 0.5);
 }
-#headerbar {
+.headerbar {
     position: relative;
     width: 100%;
     border-bottom: 3px dashed rgba(0, 128, 255, 0.25);
@@ -241,9 +241,11 @@ img {
 pre code {
     text-align: left;
 }
+
+
 /* されたコメントの背景を追加、白の透明度75%に */
 /* 左右内部に余白を追加 */
-
+/* これはID要素じゃないとダメ */
 #comments {
     background: rgba(255, 255, 255, 0.85);
     padding: 0.1em 3em 0em 3em;
@@ -258,7 +260,7 @@ pre code {
 
 /* アクセスカウンターをｵｻﾚに包む用 */
 /* <div id="accesscounter"> ～ </div> */
-#accesscounter {    
+.accesscounter {    
     color: rgb(0, 85, 221);
     background: rgba(255, 255, 255, 0.50) none repeat scroll 0% 0%;
     /*padding: 0em 3em;*/
@@ -266,7 +268,7 @@ pre code {
     border-radius: 30px;
     margin-bottom: 1em;
 }
-#myprofile {
+.myprofile {
     color: rgb(0, 85, 221);
     background: rgba(255, 255, 255, 0.50) none repeat scroll 0% 0%;
     padding: 0.25em 1.5em;
@@ -275,33 +277,33 @@ pre code {
     font-size: <?php echo FSize::myprofile;?>;
     margin-bottom: 1em;
 }
-#myprofile_c {
+.myprofile_c {
     padding: 0.5em 0em 0em 1em;
     font-size:<?php echo FSize::myprofile_c;?>;
 }
-#myprofile_links_wrap {
+.myprofile_links_wrap {
     background: rgba(255, 255, 255, 0.50) none repeat scroll 0% 0%;
     border: 2px dotted rgba(0, 224, 255, 0.25);
     border-radius: 30px;
     margin-bottom: 1em;
 }
-#myprofile_links {
+.myprofile_links {
     color: rgb(0, 85, 221);
     padding: 0.25em 1.51em 0.5em 1.5em;
     font-size:<?php echo FSize::myprofile_links;?>;
 }
-#myprofile_links_c {
+.myprofile_links_c {
     padding: 0.0em 0em 0em 0.91em;
     margin: -0.1em 0em 0em 0em;
 }
-#myprofile_links_c a {
+.myprofile_links_c a {
     display: flex;
     margin: 0.7em 0em;
     flex-direction: row;
     line-height: 1.00;
     align-items: center;
 }
-#sns_bts {
+.sns_bts {
     z-index: 1000;
     position: fixed;
     border-radius: 30px;
@@ -313,10 +315,12 @@ pre code {
     display: flex;
     flex-direction: row;
 }
-#sns_bts_cs {
+.sns_bts_cs {
     padding: 0.5em;
     display: inherit;
 }
+
+
 .tagcloud {
     position: relative;
     overflow: hidden;
@@ -362,6 +366,30 @@ pre code {
 
 
 /* 自分用スタイルここまで */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Hyper text
 ------------------------------------------------- */
 

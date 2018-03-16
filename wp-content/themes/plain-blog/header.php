@@ -40,18 +40,18 @@
 </head>
 <body <?php body_class(); ?>>
     <!--main_container-->
-    <div id="headerbar_fix">
-        <div id="headerbar">
+    <div class="headerbar_fix">
+        <div class="headerbar">
             <!-- <div id="h_menu">
                 <img src="/wp-content/themes/plain-blog/menu.png" height="40" width="40">
                 <div id="h_menu_item"></div>
             </div> -->
-            <div id="title_img"><a href="/"><img src="<?php echo get_template_directory_uri(); ?>/panyamohi_title.png" height="40" width="128"></a></div>
+            <div class="title_img"><a href="/"><img src="<?php echo get_template_directory_uri(); ?>/panyamohi_title.png" height="40" width="128"></a></div>
             <?php get_template_part('searchform_h'); ?>
-            <div id="h_menu">
+            <div class="h_menu">
                 <img src="/wp-content/themes/plain-blog/menu.png" height="40" width="40">
-                <div id="h_menu_item">
-                    <div id="google_translate_element"></div><script type="text/javascript">
+                <div class="h_menu_item">
+                    <div class="google_translate_element"></div><script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'ja', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true, gaTrack: true, gaId: 'UA-68910918-1'}, 'google_translate_element');
 }
