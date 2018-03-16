@@ -2,7 +2,7 @@
     const req = new XMLHttpRequest();
 
     req.onreadystatechange = function() {
-        const result = document.getElementById('accesscounter');
+        const result = document.getElementsByClassName('accesscounter');
         if (req.readyState == 4) { // 通信の完了時
             if (req.status == 200) { // 通信の成功時
                 console.log("ajax通信成功！");
