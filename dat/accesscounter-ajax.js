@@ -8,6 +8,7 @@
                 console.log("ajax通信成功！");
                 console.log(result);
                 result.innerHTML = req.responseText;
+                console.log(result);
             }else {
                 console.log("ajaxエラーが発生しました：");
                 console.log(req.status);
