@@ -259,7 +259,7 @@ pre code {
 }
 
 /* アクセスカウンターをｵｻﾚに包む用 */
-/* <div id="accesscounter"> ～ </div> */
+/* <div class="accesscounter"> ～ </div> */
 .accesscounter {    
     color: rgb(0, 85, 221);
     background: rgba(255, 255, 255, 0.50) none repeat scroll 0% 0%;
