@@ -318,6 +318,7 @@ pre code {
 .sns_bts_cs {
     padding: 0.5em;
     display: inherit;
+    text-decoration: none !important;
 }
 
 
@@ -379,10 +380,6 @@ pre img{
     border-radius: 0.25em;
     padding: 0em 0.5em 0em 0.5em;
     box-shadow: 0em 0em 0.1em inset #fff,0em 0em 0.1em inset #fff;
-}
-
-.poti a{
-    text-decoration: none;
 }
 
 
