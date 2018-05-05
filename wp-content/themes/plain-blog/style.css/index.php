@@ -367,6 +367,19 @@ pre img{
     box-shadow: 0px 0px 3px 0px #000000AA;
 }
 
+/* ボタン装飾。『前、次の記事を見る』に使用 */
+.poti {
+    background-color: #005aff;
+    height: 20px;
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 0em 0em 0em #fff,0em 0em 0em #fff,0em 0em 1em #fff;
+    border-radius: 0.25em;
+    padding: 0em 0.5em 0em 0.5em;
+    box-shadow: 0em 0em 0.1em inset #fff,0em 0em 0.1em inset #fff;
+}
 
 
 /* 自分用スタイルここまで */

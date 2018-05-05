@@ -1,6 +1,53 @@
+<?php
+
+public function get_prev_post_url(){
+
+  $url = get_previous_post_link();
+  $url = get_url_in_content($url);
+
+  return $url;
+
+}
+
+public function get_next_post_url(){
+
+  $url = get_next_post_link();
+  return get_url_in_content($url);
+
+}
+
+public function echo_prev_post_btn(){
+
+  $url = get_prev_post_url();
+
+  if($url == NULL){
+    echo "<div class=""poti"">⬅ 前の記事はありません</div>";
+  }else{
+    echo "<a href=""".$url."""><div class=""poti"">⬅ 前の記事を見る</div></a>";
+  }
+
+}
+
+public function echo_next_post_btn(){
+
+  $url = get_next_post_url();
+
+  if($url == NULL){
+    echo "<div class=""poti"">次の記事はありません ➡</div>";
+  }else{
+    echo "<a href=""".$url."""><div class=""poti"">次の記事を見る ➡</div></a>";
+  }
+
+}
+
+?>
+
 <div class="sns_bts">
 
 
+<div class="sns_bts_cs">
+<?php echo_prev_post_btn(); ?>
+</div>
 
 <div class="sns_bts_cs">
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="pan_nyaa" data-count="none" data-dnt="true">Tweet</a>
@@ -23,6 +70,9 @@
 <div class="fb-like" data-href="http://panyaa.lv9.org" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
 </div>           
 
+<div class="sns_bts_cs">
+<?php echo_prev_next_btn(); ?>
+</div>
 
 	</div>              
                 
