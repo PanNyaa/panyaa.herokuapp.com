@@ -75,7 +75,7 @@ function echo_next_post_btn(){
 </div>           
 
 <div class="sns_bts_cs">
-<?php echo_prev_next_btn(); ?>
+<?php echo_next_post_btn(); ?>
 </div>
 
 	</div>              
