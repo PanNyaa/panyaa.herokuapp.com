@@ -4,7 +4,7 @@
 ini_set( 'display_errors', 1 ); //エラーメッセージを表示する設定にする
 
 
-public function get_prev_post_url(){
+function get_prev_post_url(){
 
   $url = get_previous_post_link();
   $url = get_url_in_content($url);
@@ -13,33 +13,33 @@ public function get_prev_post_url(){
 
 }
 
-public function get_next_post_url(){
+function get_next_post_url(){
 
   $url = get_next_post_link();
   return get_url_in_content($url);
 
 }
 
-public function echo_prev_post_btn(){
+function echo_prev_post_btn(){
 
   $url = get_prev_post_url();
 
   if($url == NULL){
-    echo "<div class=""poti"">⬅ 前の記事はありません</div>";
+    echo "<div class=\"poti\">🚫 前の記事はありません</div>";
   }else{
-    echo "<a href=""".$url."""><div class=""poti"">⬅ 前の記事を見る</div></a>";
+    echo "<a href=\"".$url."\"><div class=\"poti\">⬅ 前の記事を見る</div></a>";
   }
 
 }
 
-public function echo_next_post_btn(){
+function echo_next_post_btn(){
 
   $url = get_next_post_url();
 
   if($url == NULL){
-    echo "<div class=""poti"">次の記事はありません ➡</div>";
+    echo "<div class=\"poti\">次の記事はありません 🚫</div>";
   }else{
-    echo "<a href=""".$url."""><div class=""poti"">次の記事を見る ➡</div></a>";
+    echo "<a href=\"".$url."\"><div class=\"poti\">次の記事を見る ➡</div></a>";
   }
 
 }
