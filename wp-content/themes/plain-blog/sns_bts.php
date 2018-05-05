@@ -1,5 +1,9 @@
 <?php
 
+
+ini_set( 'display_errors', 1 ); //エラーメッセージを表示する設定にする
+
+
 public function get_prev_post_url(){
 
   $url = get_previous_post_link();
