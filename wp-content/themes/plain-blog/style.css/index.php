@@ -405,6 +405,7 @@ a {
     -o-transition: 200ms;
     transition: 200ms;
     /* text glow */
+    word-wrap: break-word;
 }
 a:link,
 a:visited {
