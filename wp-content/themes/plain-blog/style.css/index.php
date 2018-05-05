@@ -626,6 +626,7 @@ h1.single-title {
     border: 2px dotted rgba(0, 224, 255, 0.25);
     border-radius: 30px;
     background: rgba(255, 255, 255, 0.5);
+    word-wrap: break-word;
 }
 h2 {
     font-size: 2em;
