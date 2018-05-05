@@ -68,15 +68,15 @@ function echo_next_post_btn(){
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.5";
+  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.0';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-like" data-href="http://panyaa.lv9.org" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+<div class="fb-like" data-href="<?php the_permalink();?>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
 </div>           
 
 <div class="sns_bts_cs">
 <?php echo_next_post_btn(); ?>
 </div>
 
-	</div>              
+</div>              
                 
