@@ -363,6 +363,10 @@ pre code {
     width: 960px;
 }
 
+.pre img{
+    box-shadow: 0px 0px 3px 0px #000000AA;
+}
+
 
 
 /* 自分用スタイルここまで */
