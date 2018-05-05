@@ -381,6 +381,10 @@ pre img{
     box-shadow: 0em 0em 0.1em inset #fff,0em 0em 0.1em inset #fff;
 }
 
+.poti a{
+    text-decoration: none;
+}
+
 
 /* 自分用スタイルここまで */
 
