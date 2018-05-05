@@ -318,8 +318,12 @@ pre code {
 .sns_bts_cs {
     padding: 0.5em;
     display: inherit;
+}
+
+.sns_bts_cs a{
     text-decoration: none !important;
 }
+
 
 
 .tagcloud {
