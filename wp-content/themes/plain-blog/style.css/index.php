@@ -376,7 +376,7 @@ pre img{
 .poti {
     background-color: #005aff;
     height: 20px;
-    display: inherit;
+    display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
