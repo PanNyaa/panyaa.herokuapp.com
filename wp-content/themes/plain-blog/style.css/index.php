@@ -387,6 +387,33 @@ pre img{
     box-shadow: 0em 0em 0.1em inset #fff,0em 0em 0.1em inset #fff;
 }
 
+/* こっちはモバイル用 */
+/* 記号１文字に最適化されたサイズのボタン */
+.poti_sp{
+    background-color: #005aff;
+    height: 20px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 0em 0em 0em #fff,0em 0em 0em #fff,0em 0em 1em #fff;
+    border-radius: 0.25em;
+    padding: 0em 0.5em 0em 0.5em;
+    box-shadow: 0em 0em 0.1em inset #fff,0em 0em 0.1em inset #fff;
+}
+
+/* 横幅640px以下環境で表示されるやつ */
+@media only screen and (max-width : 640px){
+
+.poti {
+	display: none;
+}
+.poti_sp{
+	display: flex;
+}
+
+}
+
 
 /* 自分用スタイルここまで */
 
