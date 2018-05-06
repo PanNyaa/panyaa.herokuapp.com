@@ -25,7 +25,7 @@ function echo_prev_post_btn(){
   if($url == NULL){
     echo "<div class=\"poti\">🚫 前の記事はありません</div><div class=\"poti_sp\">🚫</div>";
   }else{
-    echo "<a href=\"".$url."\"><div class=\"poti\">⬅ 前の記事を見る</div><div class=\"poti_sp\">⬅</div></a>";
+    echo "<a href=\"".$url."\"><div class=\"poti\">◀ 前の記事を見る</div><div class=\"poti_sp\">◀</div></a>";
   }
 
 }
@@ -37,7 +37,7 @@ function echo_next_post_btn(){
   if($url == NULL){
     echo "<div class=\"poti\">次の記事はありません 🚫</div><div class=\"poti_sp\">🚫</div>";
   }else{
-    echo "<a href=\"".$url."\"><div class=\"poti\">次の記事を見る ➡</div><div class=\"poti_sp\">➡</div></a>";
+    echo "<a href=\"".$url."\"><div class=\"poti\">次の記事を見る ▶</div><div class=\"poti_sp\">▶</div></a>";
   }
 
 }
