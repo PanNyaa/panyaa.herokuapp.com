@@ -381,7 +381,7 @@ pre img{
     align-items: center;
     justify-content: center;
     color: #fff;
-    text-shadow: 0em 0em 0em #fff,0em 0em 0em #fff,0em 0em 1em #fff;
+    text-shadow: 0em 0em 0em #fff,0em 0em 0em #fff,0em 0em 1em #fff,-0.04em -0.04em 0em #777;
     border-radius: 0.25em;
     padding: 0em 0.5em 0em 0.5em;
     box-shadow: 0em 0em 0.1em inset #fff,0em 0em 0.1em inset #fff;
@@ -396,7 +396,7 @@ pre img{
     align-items: center;
     justify-content: center;
     color: #fff;
-    text-shadow: 0em 0em 0em #fff,0em 0em 0em #fff,0em 0em 1em #fff;
+    text-shadow: 0em 0em 0em #fff,0em 0em 0em #fff,0em 0em 1em #fff,-0.04em -0.04em 0em #777;
     border-radius: 0.25em;
     padding: 0em 0.5em 0em 0.5em;
     box-shadow: 0em 0em 0.1em inset #fff,0em 0em 0.1em inset #fff;
